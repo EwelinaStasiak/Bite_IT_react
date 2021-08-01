@@ -1,5 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+
+
 # dependencies
 /node_modules
 /.pnp
@@ -218,3 +220,37 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
+
+# Rider
+# Rider auto-generates .iml files, and contentModel.xml
+**/.idea/**/*.iml
+**/.idea/**/contentModel.xml
+**/.idea/**/modules.xml
+
+*.suo
+*.user
+.vs/
+[Bb]in/
+[Oo]bj/
+_UpgradeReport_Files/
+[Pp]ackages/
+
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+Bite_IT/.idea/.idea.Bite_IT/.idea/.gitignore
+Bite_IT/.idea/.idea.Bite_IT/.idea/encodings.xml
+Bite_IT/.idea/.idea.Bite_IT/.idea/indexLayout.xml
+Bite_IT/.idea/.idea.Bite_IT/.idea/vcs.xml
+
+Bite_IT/Bite_IT/.idea/.idea.Bite_IT/.idea/.gitignore
+Bite_IT/Bite_IT/.idea/.idea.Bite_IT/.idea/encodings.xml
+Bite_IT/Bite_IT/.idea/.idea.Bite_IT/.idea/indexLayout.xml
+Bite_IT/Bite_IT/.idea/.idea.Bite_IT/.idea/vcs.xml
+
+Bite_IT/Bite_IT/Migrations/20210725193115_createdatabase.cs
+Bite_IT/Bite_IT/Migrations/20210725193115_createdatabase.Designer.cs
+Bite_IT/Bite_IT/Migrations/RestaurantDbContextModelSnapshot.cs
+Bite_IT/Bite_IT/Migrations/
+Bite_IT/Bite_IT/appsettings.json
