@@ -5,6 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("./img/backgroundmobile.png");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover ;  
 }
 
 code {
