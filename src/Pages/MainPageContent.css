@@ -1,0 +1,10 @@
+.content-container {
+    min-height: 200px;
+    max-heigh: 800px;
+    width: 480px;
+    margin: 200px 240px;
+    padding: 10px;
+    background: none;
+    color: white;
+    font-family: "Bradley Hand", sans-serif;
+}

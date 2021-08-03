@@ -1,26 +1,23 @@
 import './App.css';
 import { Container, Navbar} from 'react-bootstrap';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Logo from './img/logo3.png';
 import Waiter from './img/waiter.png';
 import Menu from './img/menu.png';
 import Order from './img/order.png';
-import FetchMenu from "./FetchApi/FetchMenu";
+import MainPageContent from "./Pages/MainPageContent";
 
 const App = () => {
-  const [menu, setMenu] = useState();
+  const [menu, setMenu] = useState({meals: []});
   
-  function getMenu (fetchResponse) {
-    if (menu === undefined) {
-      setMenu(fetchResponse);
-    }
-    console.log(menu);
+  function updateMenu (newMenu){
+      setMenu(newMenu);
   }
   
   return (
     <div>
       <NavbarTest/>
-      <FetchMenu onFetch={getMenu} />
+      <MainPageContent meals={menu.meals} onMenuUpdate={updateMenu}/>
       <Footer/>
     </div>
   );
