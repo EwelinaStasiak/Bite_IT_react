@@ -1,6 +1,6 @@
 import './App.css';
 import { Container, Navbar} from 'react-bootstrap';
-import React, {useEffect, useState} from 'react';
+import React, { useState} from 'react';
 import Logo from './img/logo3.png';
 import Waiter from './img/waiter.png';
 import Menu from './img/menu.png';
@@ -12,6 +12,7 @@ const App = () => {
   
   function updateMenu (newMenu){
       setMenu(newMenu);
+      console.log('menu updated');
   }
   
   return (

@@ -1,18 +1,44 @@
 import './MainPageContent.css';
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 
 function MainPageContent (props) {
-    useEffect(() => {
-        fetch('https://localhost:5001/Menu')
-            .then(response => response.json())
-            .then(data => manageMenu(data));
-    }, [props.meals, manageMenu])
+    const [error, setError] = useState(null);
 
+    useEffect(() => {
+        fetchMenu();
+        const interval = intervalHandler();
+        return () => {
+            clearInterval(interval)
+        }
+    }, [props.meals, manageMenu, error]);
+
+    function intervalHandler () {
+        return setInterval( () => {
+            fetchMenu();
+        }, 5000);
+    }
+    
+    async function fetchMenu () {
+        try {
+            const response = await fetch('https://localhost:5001/Menu');
+            throwErrorMessage(response);
+            const data = await response.json();
+            manageMenu(data);
+        } catch (error) {
+            setError(error.message);
+        }
+    }
+    
+    function throwErrorMessage(response) {
+        if (!response.ok) {
+            throw new Error(`Error ${response.status}: ${response.statusText}`)
+        }
+        setError(null);
+    }
+    
     function manageMenu (fetchResponse) {
         if (fetchResponse.meals.length > 0 && !objListsAreEqual(props.meals, fetchResponse.meals)) {
             props.onMenuUpdate(fetchResponse);
-            //setMenu(fetchResponse);
-            console.log('menu updated');
         } else {
             console.log('no update');
         }
@@ -31,7 +57,7 @@ function MainPageContent (props) {
     function objAreEqual(obj1, obj2) {
         let keys1 = Object.keys(obj1);
         let keys2 = Object.keys(obj2);
-
+        
         if (keys1.length !== keys2.length) return false;
 
         for (let key of keys1) {
@@ -42,7 +68,8 @@ function MainPageContent (props) {
     
     return (
         <div className="content-container">
-            {props.meals.map(meal => meal.promotionType === 0 ? <h2 key={meal.id}>{meal.name}</h2> : null)}
+            {error && <p>{error}</p>}
+            {!error && props.meals.map(meal => meal.promotionType === 0 ? <h2 key={meal.id}>{meal.name}</h2> : null)}
         </div>
     );
 }
