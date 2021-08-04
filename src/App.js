@@ -1,7 +1,7 @@
 import './App.css';
 import { Container, Navbar} from 'react-bootstrap';
 import React from 'react';
-import Logo from './img/logo3.png';
+import Logo from './img/logo.png';
 import Waiter from './img/waiter.png';
 import Menu from './img/menu.png';
 import Order from './img/order.png';
