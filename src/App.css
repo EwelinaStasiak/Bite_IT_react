@@ -9,8 +9,24 @@
   font-family: Lucida Handwriting;
 }
 
-#navbarItem {
-  margin-top: 4%;
-  margin-left: 10px;
-  margin-right: 10px;
+
+@media screen and (max-width: 480px) {
+  #navbarItem {
+    margin-top: 1vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+  
+}
+
+@media screen and (min-width: 480px) {
+  #navbarItem {
+    margin-top: 3vh;
+    margin-left: 8vw;
+    margin-right:8vw;
+  }
+  img {
+    width: 100px;
+    height: 100px;
+  }
 }
