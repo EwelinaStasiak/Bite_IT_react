@@ -1,0 +1,26 @@
+.meals-list-container {
+    margin: 0;
+    height: 61vh;
+    width: 100%;
+    /*background: red;*/
+    color: white;
+}
+
+.title {
+    font-size: 2em;
+}
+
+.meals-list {
+    margin-bottom: 0.7em;
+    font-size: 1.5em;
+    text-align: left;
+    /*list-style-type: "🍲";*/
+    /*list-style-type: "🍽️";*/
+    list-style-type: "🍴";
+    list-style-position: outside;
+}
+
+.meals-list span {
+    position: relative;
+    margin-left: 0.3em;
+}

@@ -1,0 +1,25 @@
+.content-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 67vh;
+    width: 67vw;
+    /*width: 500px;*/
+    background: blue;
+    color: white;
+    font-family: "Bradley Hand", sans-serif;
+}
+
+@media only screen and (max-height: 1024px) {
+    .content-container-width {
+        width: 500px;
+        /*width: 67vw;*/
+    }
+}
+
+@media only screen and (max-height: 800px) {
+    .content-container-width {
+        width: 400px;
+    }
+}

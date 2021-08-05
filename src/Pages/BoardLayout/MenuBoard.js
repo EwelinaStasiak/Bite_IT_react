@@ -1,7 +1,9 @@
-import './MainPageContent.css';
+import './MenuBoard.css';
+import Board from '../../img/menubackground.png';
+import MenuContainer from "./MenuContainer";
 import {useEffect, useState} from "react";
 
-function MainPageContent (props) {
+function MenuBoard (props) {
     const [error, setError] = useState(null);
 
     useEffect(() => {
@@ -17,7 +19,7 @@ function MainPageContent (props) {
             fetchMenu();
         }, 5000);
     }
-    
+
     async function fetchMenu () {
         try {
             const response = await fetch('https://localhost:5001/Menu');
@@ -28,14 +30,14 @@ function MainPageContent (props) {
             setError(error.message);
         }
     }
-    
+
     function throwErrorMessage(response) {
         if (!response.ok) {
             throw new Error(`Error ${response.status}: ${response.statusText}`)
         }
         setError(null);
     }
-    
+
     function manageMenu (fetchResponse) {
         if (fetchResponse.meals.length > 0 && !objListsAreEqual(props.meals, fetchResponse.meals)) {
             props.onMenuUpdate(fetchResponse);
@@ -57,7 +59,7 @@ function MainPageContent (props) {
     function objAreEqual(obj1, obj2) {
         let keys1 = Object.keys(obj1);
         let keys2 = Object.keys(obj2);
-        
+
         if (keys1.length !== keys2.length) return false;
 
         for (let key of keys1) {
@@ -67,11 +69,11 @@ function MainPageContent (props) {
     }
     
     return (
-        <div className="content-container">
-            {error && <p>{error}</p>}
-            {!error && props.meals.map(meal => meal.promotionType === 0 ? <h2 key={meal.id}>{meal.name}</h2> : null)}
+        <div className="menu-board">
+            <img alt="menu-board" src={Board} className="board-img"/>
+            <MenuContainer meals={props.meals} error={error}/>
         </div>
-    );
+    )
 }
 
-export default MainPageContent;
+export default MenuBoard;

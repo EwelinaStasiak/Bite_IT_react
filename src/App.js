@@ -5,7 +5,7 @@ import Logo from './img/logo.png';
 import Waiter from './img/waiter.png';
 import Menu from './img/menu.png';
 import Order from './img/order.png';
-import MainPageContent from "./Pages/MainPageContent";
+import MenuBoard from "./Pages/BoardLayout/MenuBoard";
 
 const App = () => {
   const [menu, setMenu] = useState({meals: []});
@@ -14,13 +14,13 @@ const App = () => {
       setMenu(newMenu);
       console.log('menu updated');
   }
-  
+
   return (
-    <div>
-      <NavbarTest/>
-      <MainPageContent meals={menu.meals} onMenuUpdate={updateMenu}/>
-      <Footer/>
-    </div>
+      <div>
+        <NavbarTest/>
+        <MenuBoard meals={menu.meals} onMenuUpdate={updateMenu}/>
+        <Footer/>
+      </div>
   );
 }
 
