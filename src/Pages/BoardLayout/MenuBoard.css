@@ -1,0 +1,10 @@
+.menu-board {
+    position: relative;
+    margin: -7vh auto auto;
+    height: 100%;
+}
+
+.board-img {
+    height: 100vh;
+    width: auto;
+}
