@@ -1,14 +1,14 @@
 import './FilterBtns.css';
-import glutenFree from '../../img/wheat-995055_640.png';
-import lactoseFree from '../../img/milk-995051_640.png';
-import vegan from '../../img/vegan-zielony.png';
+import glutenFree from '../../img/glutenFree.png';
+import lactoseFree from '../../img/lactoseFree.png';
+import vegan from '../../img/veganFreeCircle.png';
 import {useState} from "react";
 
 let filters = [];
 
 function FilterBtns (props) {
-    let clickedColor = "aqua";
-    let unclickedColor = "white";
+    let clickedColor = "#728C11";
+    let unclickedColor = "transparent";
     let buttons = {
         GlutenFree: {
             color: unclickedColor,
