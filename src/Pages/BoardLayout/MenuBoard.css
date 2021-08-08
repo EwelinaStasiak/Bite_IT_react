@@ -1,5 +1,6 @@
 .menu-board {
-    position: relative;
+    display: flex;
+    justify-content: center;
     margin: -7vh auto auto;
     height: 100%;
 }

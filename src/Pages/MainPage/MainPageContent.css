@@ -1,5 +1,7 @@
 .meals-list-container {
-    margin: 0;
+    display: flex;
+    flex-direction: column;
+    margin-top: 7vh;
     height: 61vh;
     width: 100%;
     /*background: red;*/

@@ -80,9 +80,13 @@ function MenuBoard (props) {
     
     return (
         <div className="menu-board">
-            <FilterBtns meals={props.meals} onFilter={filterHandler} />
-            <img alt="menu-board" src={Board} className="board-img"/>
-            <MenuContainer meals={filteredMenu} error={error}/>
+            <div>
+                <FilterBtns meals={props.meals} onFilter={filterHandler} />
+            </div>
+            <div>
+                <img alt="menu-board" src={Board} className="board-img"/>
+                <MenuContainer meals={filteredMenu} error={error}/>
+            </div>
         </div>
     )
 }
