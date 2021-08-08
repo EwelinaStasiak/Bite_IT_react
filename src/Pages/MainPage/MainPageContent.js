@@ -8,7 +8,7 @@ function MainPageContent (props) {
             {props.error && <p>{props.error}</p>}
             <ul>
                 {!props.error && props.meals.map(meal => meal.promotionType === 0 ?
-                    <Meal meal={meal} /> :
+                    <Meal key={meal.id} meal={meal} /> :
                     null)
                 }
             </ul>

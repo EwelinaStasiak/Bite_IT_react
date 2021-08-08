@@ -1,0 +1,24 @@
+.filter-btns-container {
+    text-align: left;
+    /*background-color: blue;*/
+    position: absolute;
+    top: 9vh;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    height: 7vh;
+    width: auto;
+    min-width: 10px;
+}
+
+.filter-btns-container button {
+    height: 7vh;
+    width: auto;
+    background: brown;
+    margin: 0.5vh 2vw;
+}
+
+.filter-btns-container button img {
+    height: 5vh;
+    width: auto;
+    background: transparent;
+}

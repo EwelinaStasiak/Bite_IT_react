@@ -2,9 +2,11 @@ import './MenuBoard.css';
 import Board from '../../img/menubackground.png';
 import MenuContainer from "./MenuContainer";
 import {useEffect, useState} from "react";
+import FilterBtns from "../MainPage/FilterBtns";
 
 function MenuBoard (props) {
     const [error, setError] = useState(null);
+    const [filteredMenu, setFilteredMenu] = useState(props.meals);
 
     useEffect(() => {
         fetchMenu();
@@ -67,11 +69,20 @@ function MenuBoard (props) {
         }
         return true;
     }
+
+    useEffect(() => {
+        setFilteredMenu(props.meals);
+    }, [props.meals])
+
+    function filterHandler(filtered) {
+        setFilteredMenu(filtered);
+    }
     
     return (
         <div className="menu-board">
+            <FilterBtns meals={props.meals} onFilter={filterHandler} />
             <img alt="menu-board" src={Board} className="board-img"/>
-            <MenuContainer meals={props.meals} error={error}/>
+            <MenuContainer meals={filteredMenu} error={error}/>
         </div>
     )
 }
