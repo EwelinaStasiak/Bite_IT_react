@@ -1,6 +1,8 @@
 .filter-btns-container {
     text-align: left;
-    /*background-color: blue;*/
+    /*background-color: cadetblue;*/
+    /*background-color: aqua;*/
+    /*background-color: cornflowerblue;*/
     position: absolute;
     top: 9vh;
     left: 50%;
@@ -13,8 +15,8 @@
 .filter-btns-container button {
     height: 7vh;
     width: auto;
-    background: brown;
     margin: 0.5vh 2vw;
+    border-radius: 50%;
 }
 
 .filter-btns-container button img {

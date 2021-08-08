@@ -7,17 +7,19 @@ import {useState} from "react";
 let filters = [];
 
 function FilterBtns (props) {
+    let clickedColor = "aqua";
+    let unclickedColor = "white";
     let buttons = {
         GlutenFree: {
-            color: "brown",
+            color: unclickedColor,
             img: glutenFree
         },
         LactoseFree: {
-            color: "brown",
+            color: unclickedColor,
             img: lactoseFree
         },
         Vegan: {
-            color: "brown",
+            color: unclickedColor,
             img: vegan
         }
     }
@@ -64,7 +66,7 @@ function FilterBtns (props) {
         setButtonsSettings(prevState => ({
             ...prevState,
             [key]: {
-                color: buttonsSettings[key].color === "brown" ? "blue" : "brown",
+                color: buttonsSettings[key].color === unclickedColor ? clickedColor : unclickedColor,
                 img: prevState[key].img
             }
         }))
