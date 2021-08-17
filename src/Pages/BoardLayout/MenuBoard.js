@@ -3,7 +3,7 @@ import Board from '../../img/menubackground.png';
 import MenuContainer from "./MenuContainer";
 import {useEffect, useState} from "react";
 import FilterBtns from "../MainPage/FilterBtns";
-import { HubConnectionBuilder } from '@microsoft/signalr';
+//import { HubConnectionBuilder } from '@microsoft/signalr';
 
 function MenuBoard (props) {
     const [error, setError] = useState(null);
