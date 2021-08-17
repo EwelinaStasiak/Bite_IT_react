@@ -3,7 +3,7 @@ import Meal from "./Meal";
 
 function MainPageContent (props) {
     return (
-        <div className="meals-list-container">
+        <div className="board-content-container">
             <h1 className="title"><u>DZIŚ POLECAMY:</u></h1>
             {props.error && <p>{props.error}</p>}
             <ul>
