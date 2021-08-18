@@ -41,14 +41,14 @@ const Footer = () => {
 
 const NavbarTest = () => {
   return (
-    <>
+    <div id="navbarContainer">
       <Navbar>
         <Container>
           <Navbar.Brand href="#">
             <img
               src={Logo}
-              width="70"
-              height="70"
+              width="100"
+              height="100"
               className="d-inline-block align-top"
               id= "navbarItem"
             ></img>
@@ -56,8 +56,8 @@ const NavbarTest = () => {
           <Navbar.Brand href="#">
             <img
               src={Waiter}
-              width="70"
-              height="70"
+              width="100"
+              height="100"
               className="d-inline-block align-top"
               id= "navbarItem"
             ></img>
@@ -65,8 +65,8 @@ const NavbarTest = () => {
           <Navbar.Brand href="#">
             <img
               src={Menu}
-              width="70"
-              height="70"
+              width="100"
+              height="100"
               className="d-inline-block align-top"
               id= "navbarItem"
             ></img>
@@ -74,15 +74,15 @@ const NavbarTest = () => {
           <Navbar.Brand href="#">
             <img
               src={Order}
-              width="70"
-              height="70"
+              width="100"
+              height="100"
               className="d-inline-block align-top"
               id= "navbarItem"
             ></img>
           </Navbar.Brand>
         </Container>
       </Navbar>
-    </>
+    </div>
   )
 }
 export default App;

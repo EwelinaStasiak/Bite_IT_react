@@ -6,9 +6,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-attachment: scroll;
   background-size: cover ;  
+  height: 100vh;
 }
 
 @media screen and (max-width: 480px) {
