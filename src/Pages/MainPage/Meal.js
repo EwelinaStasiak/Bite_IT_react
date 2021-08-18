@@ -18,7 +18,7 @@ function Meal (props) {
                 {/*<span className="down-arrow">*/}
                 {/*   {listIsShown ? ' 🔼' : ' 🔽'}*/}
                 {/*</span>*/}
-                <AddToCartBtn/>
+                <AddToCartBtn mealId={props.meal.id}/>
             </div>
             {/*<br/>*/}
             {listIsShown && <IngredientsList meal={props.meal}/>}
