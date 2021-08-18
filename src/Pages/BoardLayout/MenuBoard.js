@@ -1,6 +1,7 @@
 import './MenuBoard.css';
-import Board from '../../img/menubackground.png';
+import Board from '../../img/menuBoard.png';
 import MenuContainer from "./MenuContainer";
+import CategoryMenu from "../MenuPage/CategoryMenu";
 import {useEffect, useState} from "react";
 
 function MenuBoard (props) {
@@ -70,8 +71,13 @@ function MenuBoard (props) {
     
     return (
         <div className="menu-board">
-            <img alt="menu-board" src={Board} className="board-img"/>
-            <MenuContainer meals={props.meals} error={error}/>
+            {/* {x && <div><CategoryMenu/></div>} */}
+
+            <div>
+                <img alt="menu-board" src={Board} className="board-img"/>
+                
+                <MenuContainer meals={props.meals} error={error}/>
+            </div>
         </div>
     )
 }
