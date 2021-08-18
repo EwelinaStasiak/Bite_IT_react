@@ -26,7 +26,7 @@ function OderSum(props) {
                     <span>{computeNetPrice()} PLN</span>
                 </div>
                 <div>
-                    <p>VAT:</p>
+                    <p>PTU A = 23,00%:</p>
                     <span>{computeTax()} PLN</span>
                 </div>
                 <div id="final-price">

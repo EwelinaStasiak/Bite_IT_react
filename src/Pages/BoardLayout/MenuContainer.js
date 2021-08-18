@@ -36,6 +36,16 @@ const testOrder = {
             promotionType: 1,
             filterMarkers: []
         },
+        {
+            id: 3,
+            menuId: 1,
+            description: "Sok ze swierzych pomarańczy",
+            price: 7,
+            name: "Sok pomarańczowy",
+            mealType: 1,
+            promotionType: 1,
+            filterMarkers: []
+        },
     ]
 }
 

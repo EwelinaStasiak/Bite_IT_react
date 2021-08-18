@@ -6,6 +6,7 @@
     width: 100%;
     /*background: red;*/
     color: white;
+    overflow: scroll;
 }
 
 .title {
