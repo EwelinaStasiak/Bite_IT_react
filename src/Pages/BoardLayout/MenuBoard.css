@@ -1,6 +1,7 @@
 .menu-board {
     position: relative;
-    margin: -7vh auto auto;
+    margin-top: 2vh;
+    /* margin: -7vh auto auto; */
     height: 100%;
 }
 
