@@ -6,6 +6,7 @@ import {useEffect, useState} from "react";
 
 function MenuBoard (props) {
     const [error, setError] = useState(null);
+    const [isMenuShow, setIsMenuShow] = useState(false)
 
     useEffect(() => {
         fetchMenu();
@@ -71,7 +72,7 @@ function MenuBoard (props) {
     
     return (
         <div className="menu-board">
-            {/* {x && <div><CategoryMenu/></div>} */}
+            {isMenuShow && <div><CategoryMenu/></div>}
 
             <div>
                 <img alt="menu-board" src={Board} className="board-img"/>
