@@ -2,7 +2,7 @@ import '../MainPage/MainPageContent.css';
 import "./OrderSummary.css"
 import OrderedMeals from "./OrderedMeals";
 import OrderSum from "./OderSum";
-import PayBtn from "./PayBtn";
+import SummaryBtns from "./SummaryBtns";
 
 function OrderSummary(props) {
     return(
@@ -12,7 +12,7 @@ function OrderSummary(props) {
             {props.error && <p>{props.error}</p>}
             {!props.error && <OrderedMeals meals={props.order.meals} />}
             {!props.error && <OrderSum meals={props.order.meals} />}
-            <PayBtn />
+            <SummaryBtns />
         </div>
     )
 }

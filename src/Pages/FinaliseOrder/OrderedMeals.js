@@ -23,7 +23,7 @@ function OrderedMeals (props) {
     return(
         <ul className="ordered-meals-list">
             {props.meals.map(meal =>
-                displayMeal(meal.name) && <MealSummary meal={meal} count={mealsCount} />
+                displayMeal(meal.name) && <MealSummary key={meal.id} meal={meal} count={mealsCount} />
             )}
         </ul>
     )
