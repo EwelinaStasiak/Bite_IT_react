@@ -1,0 +1,18 @@
+.meal-price-container {
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    
+}
+
+.meal-price-container span {
+    padding: 0.5vh 0 0 1vw;
+    border-top: 2px solid white;
+    font-size: 20px;
+}
+
+.meal-price {
+    margin-bottom: 0;
+    padding-left: 1vw;
+}

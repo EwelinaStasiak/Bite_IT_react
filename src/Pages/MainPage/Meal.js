@@ -1,7 +1,7 @@
 import IngredientsList from "./IngredientsList";
 import {useState} from "react";
 import './MainPageContent.css';
-import AddToCartBtn from "./AddToCartBtn";
+import CartBtn from "./AddToCartBtn";
 
 function Meal (props) {
     const [listIsShown, setListStatus] = useState(false);
@@ -18,7 +18,7 @@ function Meal (props) {
                 {/*<span className="down-arrow">*/}
                 {/*   {listIsShown ? ' 🔼' : ' 🔽'}*/}
                 {/*</span>*/}
-                <AddToCartBtn/>
+                <CartBtn/>
             </div>
             {/*<br/>*/}
             {listIsShown && <IngredientsList meal={props.meal}/>}

@@ -1,0 +1,15 @@
+.pay-btn-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 3vh 0.5vw;
+}
+
+.pay-btn-container button {
+    height: 30px;
+    width: 180px;
+    margin: 0;
+    border: none;
+    background: url('http://static.payu.com/pl/standard/partners/buttons/payu_account_button_long_03.png') no-repeat;
+    background-size: contain;
+    cursor: pointer;
+}

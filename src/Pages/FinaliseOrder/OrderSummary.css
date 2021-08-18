@@ -1,0 +1,16 @@
+.summery-title {
+    margin-bottom: 1vh;
+    font-size: 2em;
+    text-transform: uppercase;
+}
+
+#order-id {
+    margin-top: 0;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+#order-id strong {
+    font-family: sans-serif;
+    font-weight: bold;
+}

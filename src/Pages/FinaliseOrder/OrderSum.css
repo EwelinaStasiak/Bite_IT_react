@@ -1,0 +1,39 @@
+.order-sum-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.order-sum {
+    width: 50%;
+    border-top: 3px solid white;
+}
+
+.order-sum div {
+    margin: 0;
+    padding: 0 0 0.5vh 1vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.order-sum div:first-child {
+    padding-top: 1vh;
+}
+
+.order-sum div p {
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.order-sum div p,
+.order-sum div span {
+    font-size: 0.8em;
+}
+
+#final-price p {
+    font-size: 1.2em;
+}
+
+#final-price span {
+    font-size: 1.5em;
+}
