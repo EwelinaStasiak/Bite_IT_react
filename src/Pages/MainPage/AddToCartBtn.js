@@ -2,7 +2,8 @@ import "./AddToCartBtn.css";
 import cartImage from "../../../src/img/add-to-cart-icon-23.jpeg";
 // import cartImage from "../../../src/img/white-shopping-cart-icon-png-19.jpeg";
 
-function AddToCartBtn(props) {
+
+function AddToCartBtn({mealId, dispatch}) {
 
     async function postData(orderId, mealId){
       const result = await fetch('https://localhost:5001/OrderLine',{
@@ -17,17 +18,16 @@ function AddToCartBtn(props) {
           })
       })  
       console.log(result)
-
     };
 
-    function clickHandler(event){
-        console.log(props.mealId)
-        postData(2,props.mealId)
-        
+    const clickHandler = () => {
+        console.log(mealId);
+        postData(2,mealId);
+        dispatch({type: "addToOrder", item: "nowyprodukt"});    
     };
 
     return(
-        <button onClick={clickHandler} className="add-to-cart-btn">
+        <button onClick={clickHandler} className="add-to-cart-btn" >
             <img src={cartImage} alt="cart-btn" />
         </button>
     )

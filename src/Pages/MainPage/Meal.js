@@ -3,7 +3,7 @@ import {useState} from "react";
 import './MainPageContent.css';
 import AddToCartBtn from "./AddToCartBtn";
 
-function Meal (props) {
+function Meal ({dispatch, ...props}) {
     const [listIsShown, setListStatus] = useState(false);
 
     function toggleShowStatus () {
@@ -18,7 +18,7 @@ function Meal (props) {
                 {/*<span className="down-arrow">*/}
                 {/*   {listIsShown ? ' 🔼' : ' 🔽'}*/}
                 {/*</span>*/}
-                <AddToCartBtn mealId={props.meal.id}/>
+                <AddToCartBtn mealId={props.meal.id} dispatch={dispatch}/>
             </div>
             {/*<br/>*/}
             {listIsShown && <IngredientsList meal={props.meal}/>}

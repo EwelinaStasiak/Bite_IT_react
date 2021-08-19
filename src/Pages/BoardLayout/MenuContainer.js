@@ -3,7 +3,7 @@ import './MenuContainer.css';
 import MainPageButtons from "../MainPage/MainPageButtons";
 import {useEffect, useState} from "react";
 
-function MenuContainer(props) {
+function MenuContainer({dispatch, ...props}) {
     //const [filteredMenu, setFilteredMenu] = useState(props.meals);
     //
     // useEffect(() => {
@@ -16,7 +16,7 @@ function MenuContainer(props) {
     
     return (
         <div className="content-container content-container-width">
-            <MainPageContent meals={props.meals} error={props.error}/>
+            <MainPageContent meals={props.meals} error={props.error} dispatch={dispatch}/>
             {/*<MainPageButtons meals={filteredMenu} onFilter={filterHandler} />*/}
         </div>
     )
