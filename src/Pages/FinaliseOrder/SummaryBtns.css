@@ -1,7 +1,7 @@
 .pay-btn-container {
     display: flex;
-    justify-content: space-between;
-    padding: 3vh 3vw;
+    justify-content: flex-end;
+    padding: 1vh 3vw;
 }
 
 .pay-btn-container button {

@@ -1,4 +1,5 @@
 import MealPrice from "./MealPrice";
+import {useState} from "react";
 
 function MealSummary(props) {
     return(
