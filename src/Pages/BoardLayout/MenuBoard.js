@@ -86,7 +86,7 @@ function MenuBoard ({dispatch, ...props}) {
             </div>
             <div>
                 <img alt="menu-board" src={Board} className="board-img"/>
-                <MenuContainer meals={filteredMenu} error={error} dispatch={dispatch} />
+                <MenuContainer orderLines={props.orderLines} meals={filteredMenu} error={error} dispatch={dispatch} />
             </div>
         </div>
     )

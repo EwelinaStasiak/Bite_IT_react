@@ -9,15 +9,15 @@ import MenuBoard from "./Pages/BoardLayout/MenuBoard";
 
 const App = () => {
   const [menu, setMenu] = useState({meals: []});
-  const [orders, dispatch] = useReducer((old, action) => {
+  const [state, dispatch] = useReducer((old, action) => {
     switch(action.type) {
         case "addToOrder":
-            return [...old, action.item];
+            return {...old, orderLines:action.item };
         case "removeFromOrder":
             return old.filter(i => i !== action.item);
     }        
     return old;
-}, []);
+}, {orderLines: []});
   
   function updateMenu (newMenu){
       setMenu(newMenu);
@@ -27,7 +27,7 @@ const App = () => {
   return (
       <div>
         <NavbarTest/>
-        <MenuBoard meals={menu.meals} onMenuUpdate={updateMenu} dispatch={dispatch}/>
+        <MenuBoard orderLines={state.orderLines} meals={menu.meals} onMenuUpdate={updateMenu} dispatch={dispatch}/>
         <Footer/>
       </div>
   );

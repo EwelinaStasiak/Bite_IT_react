@@ -18,7 +18,7 @@ function Meal ({dispatch, ...props}) {
                 {/*<span className="down-arrow">*/}
                 {/*   {listIsShown ? ' 🔼' : ' 🔽'}*/}
                 {/*</span>*/}
-                <AddToCartBtn mealId={props.meal.id} dispatch={dispatch}/>
+                <AddToCartBtn orderLines={props.orderLines} mealId={props.meal.id} dispatch={dispatch}/>
             </div>
             {/*<br/>*/}
             {listIsShown && <IngredientsList meal={props.meal}/>}

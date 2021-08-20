@@ -16,7 +16,7 @@ function MenuContainer({dispatch, ...props}) {
     
     return (
         <div className="content-container content-container-width">
-            <MainPageContent meals={props.meals} error={props.error} dispatch={dispatch}/>
+            <MainPageContent orderLines={props.orderLines} meals={props.meals} error={props.error} dispatch={dispatch}/>
             {/*<MainPageButtons meals={filteredMenu} onFilter={filterHandler} />*/}
         </div>
     )

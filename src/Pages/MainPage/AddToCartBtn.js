@@ -3,7 +3,7 @@ import cartImage from "../../../src/img/add-to-cart-icon-23.jpeg";
 // import cartImage from "../../../src/img/white-shopping-cart-icon-png-19.jpeg";
 
 
-function AddToCartBtn({mealId, dispatch}) {
+function AddToCartBtn({dispatch, ...props}) {
 
     async function postData(orderId, mealId){
       const result = await fetch('https://localhost:5001/OrderLine',{
@@ -20,10 +20,22 @@ function AddToCartBtn({mealId, dispatch}) {
       console.log(result)
     };
 
+    async function getData () {
+        try {
+            //dispatch({ type: "startLoading" })
+            const response = await fetch('https://localhost:5001/OrderLine/2');
+            //throwErrorMessage(response);
+            const data = await response.json();
+            const orderLinesApi = JSON.stringify(data);
+            dispatch({ type: "addToOrder", item: orderLinesApi });          
+        } catch (error) {           
+        }
+    }
+
     const clickHandler = () => {
-        console.log(mealId);
-        postData(2,mealId);
-        dispatch({type: "addToOrder", item: "nowyprodukt"});    
+        postData(2,props.mealId); 
+        getData();
+        console.log('props:' + props.orderLines);  
     };
 
     return(
