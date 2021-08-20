@@ -1,4 +1,4 @@
-.meals-list-container {
+.board-content-container {
     display: flex;
     flex-direction: column;
     margin-top: 7vh;
@@ -12,14 +12,24 @@
     font-size: 2em;
 }
 
-.meals-list {
-    margin-bottom: 0.7em;
-    font-size: 1.5em;
-    text-align: left;
+ul {
     /*list-style-type: "🍲";*/
     /*list-style-type: "🍽️";*/
     list-style-type: "🍴";
     list-style-position: outside;
+}
+
+.meals-list {
+    margin-bottom: 0.7em;
+    font-size: 1.5em;
+    text-align: left;
+}
+
+.meal-name {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
 }
 
 .meals-list span {

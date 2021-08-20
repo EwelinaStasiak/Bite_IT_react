@@ -1,6 +1,6 @@
 import './App.css';
 import { Container, Navbar} from 'react-bootstrap';
-import React, { useState} from 'react';
+import React, { useReducer, useState} from 'react';
 import Logo from './img/logo.png';
 import Waiter from './img/waiter.png';
 import Menu from './img/menu.png';
@@ -9,6 +9,15 @@ import MenuBoard from "./Pages/BoardLayout/MenuBoard";
 
 const App = () => {
   const [menu, setMenu] = useState({meals: []});
+  const [state, dispatch] = useReducer((old, action) => {
+    switch(action.type) {
+        case "addToOrder":
+            return {...old, orderLines:action.item };
+        case "removeFromOrder":
+            return old.filter(i => i !== action.item);
+    }        
+    return old;
+}, {orderLines: []});
   
   function updateMenu (newMenu){
       setMenu(newMenu);
@@ -18,7 +27,7 @@ const App = () => {
   return (
       <div>
         <NavbarTest/>
-        <MenuBoard meals={menu.meals} onMenuUpdate={updateMenu}/>
+        <MenuBoard orderLines={state.orderLines} meals={menu.meals} onMenuUpdate={updateMenu} dispatch={dispatch}/>
         <Footer/>
       </div>
   );

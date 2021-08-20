@@ -1,14 +1,14 @@
 import './MainPageContent.css';
 import Meal from "./Meal";
 
-function MainPageContent (props) {
+function MainPageContent ({dispatch, ...props}) {
     return (
-        <div className="meals-list-container">
+        <div className="board-content-container">
             <h1 className="title"><u>DZIŚ POLECAMY:</u></h1>
             {props.error && <p>{props.error}</p>}
             <ul>
                 {!props.error && props.meals.map(meal => meal.promotionType === 0 ?
-                    <Meal key={meal.id} meal={meal} /> :
+                    <Meal orderLines={props.orderLines} key={meal.id} meal={meal} dispatch={dispatch}/> :
                     null)
                 }
             </ul>
