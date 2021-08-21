@@ -26,8 +26,8 @@ function AddToCartBtn({dispatch, ...props}) {
             const response = await fetch('https://localhost:5001/OrderLine/2');
             //throwErrorMessage(response);
             const data = await response.json();
-            const orderLinesApi = JSON.stringify(data);
-            dispatch({ type: "addToOrder", item: orderLinesApi });          
+            //const orderLinesApi = JSON.stringify(data);
+            dispatch({ type: "addToOrder", item: data });          
         } catch (error) {           
         }
     }
@@ -35,7 +35,7 @@ function AddToCartBtn({dispatch, ...props}) {
     const clickHandler = () => {
         postData(2,props.mealId); 
         getData();
-        console.log('props:' + props.orderLines);  
+        console.log('props:' + JSON.stringify(props.orderLines[0].meal.name));  
     };
 
     return(
