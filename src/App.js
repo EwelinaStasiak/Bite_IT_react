@@ -7,6 +7,7 @@ import SiteNavbar from "./Pages/BoardLayout/SiteNavbar";
 const App = () => {
   const [menu, setMenu] = useState({meals: []});
   const [isShownMenu, setIsShownMenu] = useState(false);
+  const [isShownMainPage, setIsShownMainPage] = useState(true);
   
   function updateMenu (newMenu){
       setMenu(newMenu);
@@ -14,18 +15,27 @@ const App = () => {
   }
 
   function showMenu(newValue){
+
     setIsShownMenu(newValue);
-    console.log("show")
+    
   }
 
   function hideMenu(){
     setIsShownMenu(false);
   }
+
+  function showMainPage(){
+    setIsShownMainPage(true);
+  }
+
+  function hideMainPage(){
+    setIsShownMainPage(false);
+  }
   console.log(isShownMenu);
   return (
       <div>
-        <SiteNavbar onShowMenu={showMenu}/>
-        <MenuBoard meals={menu.meals} onMenuUpdate={updateMenu}/>
+        <SiteNavbar onShowMenu={showMenu} onShowMainPage={showMainPage} onHideMainPage={hideMainPage} onHideMenu={hideMenu}/>
+        <MenuBoard meals={menu.meals} onMenuUpdate={updateMenu} isShownMenu={isShownMenu} isShownMainPage={isShownMainPage}/>
         <Footer/>
       </div>
   );

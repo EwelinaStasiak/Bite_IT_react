@@ -11,7 +11,7 @@ const SiteNavbar = (props) => {
 
     function onClickMenuHandler(){
         props.onShowMenu(true);
-        console.log("menu")
+        props.onHideMainPage();
     }
 
     return (

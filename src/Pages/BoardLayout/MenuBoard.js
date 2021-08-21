@@ -6,7 +6,40 @@ import {useEffect, useState} from "react";
 
 function MenuBoard (props) {
     const [error, setError] = useState(null);
-    const [isMenuShow, setIsMenuShow] = useState(false)
+    const [isShownSoups, setIsShownSoups] = useState(false);
+    const [isShownMainDishes, setIsShownMainDish] = useState(false);
+    const [isShownDesserts, setIsShownDesserts] = useState(false);
+    const [isShownDrinks, setIsShownDrinks] = useState(false);
+
+    function showSoups(){
+        setIsShownSoups(true);
+    }
+    function showMainDishes(){
+        
+        setIsShownMainDish(true);
+    }
+
+    function showDesserts(){
+        
+        setIsShownDesserts(true);
+    }
+
+    function showDrinks(){
+        
+        setIsShownDrinks(true);
+    }
+    function hideSoups(){
+        setIsShownSoups(false);
+    }
+    function hideMainDishes(){
+        setIsShownMainDish(false);
+    }
+    function hideDesserts(){
+        setIsShownDesserts(false);
+    }
+    function hideDrinks(){
+        setIsShownDrinks(false);
+    }
 
     useEffect(() => {
         fetchMenu();
@@ -72,12 +105,14 @@ function MenuBoard (props) {
     
     return (
         <div className="menu-board">
-            {isMenuShow && <div><CategoryMenu/></div>}
+            {props.isShownMenu && <div><CategoryMenu onShowSoups={showSoups} onShowMainDishes={showMainDishes} onShowDesserts={showDesserts} onShowDrinks={showDrinks} 
+                                                    onHideSoups={hideSoups} onHideMainDishes={hideMainDishes} onHideDesserts={hideDesserts} onHideDrinks={hideDrinks}/></div>}
 
             <div>
                 <img alt="menu-board" src={Board} className="board-img"/>
                 
-                <MenuContainer meals={props.meals} error={error}/>
+                <MenuContainer meals={props.meals} error={error} isShownMainPage={props.isShownMainPage} isShownMenu={props.isShownMenu} soups={isShownSoups} 
+                mainDishes={isShownMainDishes} desserts={isShownDesserts} drinks={isShownDrinks}/>
             </div>
         </div>
     )
