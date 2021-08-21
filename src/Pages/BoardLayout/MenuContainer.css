@@ -4,7 +4,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     height: 83vh;
-    width: 67vw;
+    width: 35vw;
     /*width: 500px;*/
     /*background: blue;*/
     color: white;
@@ -26,12 +26,12 @@
 
 @media only screen and (max-height: 750px) {
     .content-container-width {
-        width: 67vw
+        width: 15vw
     }
 }
 
 @media only screen and (max-height: 550px) {
     .content-container-width {
-        width: 37vw
+        width: 15vw
     }
 }
