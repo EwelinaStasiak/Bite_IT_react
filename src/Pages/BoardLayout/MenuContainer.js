@@ -24,7 +24,7 @@ function MenuContainer({dispatch, ...props}) {
             <div className="content-container content-container-width">
             {props.isShownMainPage && <MainPageContent meals={props.meals} error={props.error}/>}
             {props.isShownMenu && <MenuContent meals={props.meals} soups={props.soups} mainDishes={props.mainDishes} desserts={props.desserts} drinks={props.drinks}/>}
-                <MainPageButtons />
+                {/* <MainPageButtons /> */}
             </div>
         </>)
 }
