@@ -6,9 +6,14 @@ import Waiter from './img/waiter.png';
 import Menu from './img/menu.png';
 import Order from './img/order.png';
 import MenuBoard from "./Pages/BoardLayout/MenuBoard";
+import SiteNavbar from "./Pages/BoardLayout/SiteNavbar";
+
 
 const App = () => {
   const [menu, setMenu] = useState({meals: []});
+  const [isShownMenu, setIsShownMenu] = useState(false);
+  const [isShownMainPage, setIsShownMainPage] = useState(true);
+  
   const [state, dispatch] = useReducer((old, action) => {
     switch(action.type) {
         case "addToOrder":
@@ -19,15 +24,34 @@ const App = () => {
     return old;
 }, {orderLines: []});
   
+  
   function updateMenu (newMenu){
       setMenu(newMenu);
       console.log('menu updated');
   }
 
+  function showMenu(newValue){
+
+    setIsShownMenu(newValue);
+    
+  }
+
+  function hideMenu(){
+    setIsShownMenu(false);
+  }
+
+  function showMainPage(){
+    setIsShownMainPage(true);
+  }
+
+  function hideMainPage(){
+    setIsShownMainPage(false);
+  }
+  console.log(isShownMenu);
   return (
       <div>
-        <NavbarTest/>
-        <MenuBoard orderLines={state.orderLines} meals={menu.meals} onMenuUpdate={updateMenu} dispatch={dispatch}/>
+        <SiteNavbar onShowMenu={showMenu} onShowMainPage={showMainPage} onHideMainPage={hideMainPage} onHideMenu={hideMenu}/>
+        <MenuBoard meals={menu.meals} onMenuUpdate={updateMenu} isShownMenu={isShownMenu} isShownMainPage={isShownMainPage}/>
         <Footer/>
       </div>
   );
@@ -48,50 +72,5 @@ const Footer = () => {
   )
 }
 
-const NavbarTest = () => {
-  return (
-    <>
-      <Navbar>
-        <Container>
-          <Navbar.Brand href="#">
-            <img
-              src={Logo}
-              width="70"
-              height="70"
-              className="d-inline-block align-top"
-              id= "navbarItem"
-            ></img>
-          </Navbar.Brand>
-          <Navbar.Brand href="#">
-            <img
-              src={Waiter}
-              width="70"
-              height="70"
-              className="d-inline-block align-top"
-              id= "navbarItem"
-            ></img>
-          </Navbar.Brand>
-          <Navbar.Brand href="#">
-            <img
-              src={Menu}
-              width="70"
-              height="70"
-              className="d-inline-block align-top"
-              id= "navbarItem"
-            ></img>
-          </Navbar.Brand>
-          <Navbar.Brand href="#">
-            <img
-              src={Order}
-              width="70"
-              height="70"
-              className="d-inline-block align-top"
-              id= "navbarItem"
-            ></img>
-          </Navbar.Brand>
-        </Container>
-      </Navbar>
-    </>
-  )
-}
+
 export default App;

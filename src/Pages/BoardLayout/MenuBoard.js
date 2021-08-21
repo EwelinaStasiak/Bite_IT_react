@@ -1,13 +1,49 @@
 import './MenuBoard.css';
-import Board from '../../img/menubackground.png';
+import Board from '../../img/menuBoard.png';
 import MenuContainer from "./MenuContainer";
 import {useEffect, useReducer, useState} from "react";
 import FilterBtns from "../MainPage/FilterBtns";
 //import { HubConnectionBuilder } from '@microsoft/signalr';
+import CategoryMenu from "../MenuPage/CategoryMenu";
+import {useEffect, useState} from "react";
 
 function MenuBoard ({dispatch, ...props}) {
     const [error, setError] = useState(null);
     const [filteredMenu, setFilteredMenu] = useState(props.meals);
+    const [isShownSoups, setIsShownSoups] = useState(false);
+    const [isShownMainDishes, setIsShownMainDish] = useState(false);
+    const [isShownDesserts, setIsShownDesserts] = useState(false);
+    const [isShownDrinks, setIsShownDrinks] = useState(false);
+
+    function showSoups(){
+        setIsShownSoups(true);
+    }
+    function showMainDishes(){
+        
+        setIsShownMainDish(true);
+    }
+
+    function showDesserts(){
+        
+        setIsShownDesserts(true);
+    }
+
+    function showDrinks(){
+        
+        setIsShownDrinks(true);
+    }
+    function hideSoups(){
+        setIsShownSoups(false);
+    }
+    function hideMainDishes(){
+        setIsShownMainDish(false);
+    }
+    function hideDesserts(){
+        setIsShownDesserts(false);
+    }
+    function hideDrinks(){
+        setIsShownDrinks(false);
+    }
 
     useEffect(() => {
         fetchMenu();
@@ -80,6 +116,7 @@ function MenuBoard ({dispatch, ...props}) {
     }
     
     return (
+        
         <div className="menu-board">
             <div>
                 <FilterBtns meals={props.meals} onFilter={filterHandler} />
@@ -87,8 +124,18 @@ function MenuBoard ({dispatch, ...props}) {
             <div>
                 <img alt="menu-board" src={Board} className="board-img"/>
                 <MenuContainer orderLines={props.orderLines} meals={filteredMenu} error={error} dispatch={dispatch} />
+            {props.isShownMenu && <div><CategoryMenu onShowSoups={showSoups} onShowMainDishes={showMainDishes} onShowDesserts={showDesserts} onShowDrinks={showDrinks} 
+                                                    onHideSoups={hideSoups} onHideMainDishes={hideMainDishes} onHideDesserts={hideDesserts} onHideDrinks={hideDrinks}/></div>}
+
+            <div>
+                <img alt="menu-board" src={Board} className="board-img"/>
+                
+                <MenuContainer meals={props.meals} error={error} isShownMainPage={props.isShownMainPage} isShownMenu={props.isShownMenu} soups={isShownSoups} 
+                mainDishes={isShownMainDishes} desserts={isShownDesserts} drinks={isShownDrinks}/>
             </div>
         </div>
+        </div>
+        
     )
 }
 

@@ -12,7 +12,10 @@
     font-size: 2em;
 }
 
-ul {
+.meals-list {
+    margin-bottom: 0.7em;
+    font-size: 1.3em;
+    text-align: left;
     /*list-style-type: "🍲";*/
     /*list-style-type: "🍽️";*/
     list-style-type: "🍴";
@@ -39,4 +42,8 @@ ul {
 
 .down-arrow {
     font-size: 0.5em;
+}
+
+.meals-list{
+    margin-left: 9vw;
 }

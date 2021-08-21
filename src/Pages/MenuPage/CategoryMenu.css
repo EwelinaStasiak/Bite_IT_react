@@ -1,0 +1,20 @@
+#categoryMenu{
+    margin-top: 2vh;
+    position: absolute;
+    margin-left: 75vh;
+    
+}
+#categoryMenuBtn{
+    background-color: transparent;
+    color: white;
+    height: 6vh;
+    width: 6vw;
+    border-top: transparent;
+    border-left: transparent;
+    border-bottom-right-radius: 2vh;
+    border-color: #262626;
+    border-width: medium;
+    font-family: "Bradley Hand", sans-serif;
+    font-size: large;
+    font-weight: bolder;
+}

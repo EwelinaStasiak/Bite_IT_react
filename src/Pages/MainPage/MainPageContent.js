@@ -6,7 +6,7 @@ function MainPageContent ({dispatch, ...props}) {
         <div className="board-content-container">
             <h1 className="title"><u>DZIŚ POLECAMY:</u></h1>
             {props.error && <p>{props.error}</p>}
-            <ul>
+            <ul className="meals-list">
                 {!props.error && props.meals.map(meal => meal.promotionType === 0 ?
                     <Meal orderLines={props.orderLines} key={meal.id} meal={meal} dispatch={dispatch}/> :
                     null)
