@@ -5,6 +5,7 @@ function MenuContent(props){
     console.log(props.soups)
     return (
         <div className="meals-list-container">
+            <h1 className="title"><u>MENU</u></h1>
             <ul className="meals-list">
                 
                 {props.soups && props.meals.map(meal => meal.mealType === 0 ?
