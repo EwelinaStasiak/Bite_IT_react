@@ -123,16 +123,12 @@ function MenuBoard ({dispatch, ...props}) {
             </div>
             <div>
                 <img alt="menu-board" src={Board} className="board-img"/>
-                <MenuContainer orderLines={props.orderLines} meals={filteredMenu} error={error} dispatch={dispatch} />
+                <MenuContainer orderLines={props.orderLines} meals={filteredMenu} error={error} dispatch={dispatch} 
+                isShownMainPage={props.isShownMainPage} isShownMenu={props.isShownMenu} soups={isShownSoups} 
+                mainDishes={isShownMainDishes} desserts={isShownDesserts} drinks={isShownDrinks}/>
             {props.isShownMenu && <div><CategoryMenu onShowSoups={showSoups} onShowMainDishes={showMainDishes} onShowDesserts={showDesserts} onShowDrinks={showDrinks} 
                                                     onHideSoups={hideSoups} onHideMainDishes={hideMainDishes} onHideDesserts={hideDesserts} onHideDrinks={hideDrinks}/></div>}
 
-            <div>
-                <img alt="menu-board" src={Board} className="board-img"/>
-                
-                <MenuContainer meals={props.meals} error={error} isShownMainPage={props.isShownMainPage} isShownMenu={props.isShownMenu} soups={isShownSoups} 
-                mainDishes={isShownMainDishes} desserts={isShownDesserts} drinks={isShownDrinks}/>
-            </div>
         </div>
         </div>
         
