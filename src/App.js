@@ -51,7 +51,7 @@ const App = () => {
   return (
       <div>
         <SiteNavbar onShowMenu={showMenu} onShowMainPage={showMainPage} onHideMainPage={hideMainPage} onHideMenu={hideMenu}/>
-        <MenuBoard meals={menu.meals} onMenuUpdate={updateMenu} isShownMenu={isShownMenu} isShownMainPage={isShownMainPage}/>
+        <MenuBoard meals={menu.meals} orderLines={state.orderLines} dispatch={dispatch} onMenuUpdate={updateMenu} isShownMenu={isShownMenu} isShownMainPage={isShownMainPage}/>
         <Footer/>
       </div>
   );
