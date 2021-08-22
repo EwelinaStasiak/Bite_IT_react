@@ -10,15 +10,19 @@ import Order from '../../img/order.png';
 const SiteNavbar = (props) => {
 
     function onClickMenuHandler(){
-        props.onShowMenu(true);
+        props.onShowMenu();
         props.onHideMainPage();
+    }
+    function onClickMainPageHandler(){
+        props.onHideMenu();
+        props.onShowMainPage();
     }
 
     return (
       <div id="navbarContainer">
         <Navbar>
           <Container>
-            <Navbar.Brand href="#">
+            <Navbar.Brand href="#" onClick={onClickMainPageHandler}>
               <img
                 src={Logo}
                 width="100"

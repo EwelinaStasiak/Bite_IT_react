@@ -30,9 +30,9 @@ const App = () => {
       console.log('menu updated');
   }
 
-  function showMenu(newValue){
+  function showMenu(){
 
-    setIsShownMenu(newValue);
+    setIsShownMenu(true);
     
   }
 
