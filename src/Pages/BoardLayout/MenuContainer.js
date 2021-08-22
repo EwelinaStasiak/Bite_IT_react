@@ -49,7 +49,7 @@ const testOrder = {
     ]
 }
 
-function MenuContainer(props) {
+function MenuContainer({dispatch, ...props}) {
     //const [filteredMenu, setFilteredMenu] = useState(props.meals);
     //
     // useEffect(() => {
@@ -62,10 +62,15 @@ function MenuContainer(props) {
     
     return (
         <div className="content-container content-container-width">
-            {!testOrder ? 
-                <MainPageContent meals={props.meals} error={props.error}/> :
+            {/*{console.log("type of ", typeof props.orderLines)}*/}
+{/*<<<<<<< HEAD*/}
+            {!props.summaryStatus ? 
+                <MainPageContent orderLines={props.orderLines}  meals={props.meals} error={props.error} dispatch={dispatch}/> :
                 <OrderSummary order={testOrder} error={props.error}/>
             }
+{/*=======*/}
+{/*            <MainPageContent orderLines={props.orderLines} meals={props.meals} error={props.error} dispatch={dispatch}/>*/}
+{/*>>>>>>> development*/}
             {/*<MainPageButtons meals={filteredMenu} onFilter={filterHandler} />*/}
         </div>
     )

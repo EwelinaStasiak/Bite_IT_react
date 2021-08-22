@@ -1,11 +1,11 @@
 import './MenuBoard.css';
 import Board from '../../img/menubackground.png';
 import MenuContainer from "./MenuContainer";
-import {useEffect, useState} from "react";
+import {useEffect, useReducer, useState} from "react";
 import FilterBtns from "../MainPage/FilterBtns";
 //import { HubConnectionBuilder } from '@microsoft/signalr';
 
-function MenuBoard (props) {
+function MenuBoard ({dispatch, ...props}) {
     const [error, setError] = useState(null);
     const [filteredMenu, setFilteredMenu] = useState(props.meals);
 
@@ -86,7 +86,14 @@ function MenuBoard (props) {
             </div>
             <div>
                 <img alt="menu-board" src={Board} className="board-img"/>
-                <MenuContainer meals={filteredMenu} error={error}/>
+                {console.log("type of ", typeof props.orderLines)}
+                <MenuContainer 
+                    orderLines={props.orderLines} 
+                    meals={filteredMenu} 
+                    error={error} 
+                    dispatch={dispatch}
+                    summaryStatus={props.summaryStatus}
+                />
             </div>
         </div>
     )

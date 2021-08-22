@@ -1,6 +1,6 @@
 import './App.css';
 import { Container, Navbar} from 'react-bootstrap';
-import React, { useState} from 'react';
+import React, { useReducer, useState} from 'react';
 import Logo from './img/logo.png';
 import Waiter from './img/waiter.png';
 import Menu from './img/menu.png';
@@ -9,16 +9,38 @@ import MenuBoard from "./Pages/BoardLayout/MenuBoard";
 
 const App = () => {
   const [menu, setMenu] = useState({meals: []});
+  const [showSummary, setShowSummary] = useState(false);
+  const [state, dispatch] = useReducer((old, action) => {
+    switch(action.type) {
+        case "addToOrder":
+            return {...old, orderLines:action.item };
+        case "removeFromOrder":
+            return old.filter(i => i !== action.item);
+    }        
+    return old;
+}, {orderLines: []});
+  
+  console.log("order line: ", state.orderLines);
   
   function updateMenu (newMenu){
       setMenu(newMenu);
       console.log('menu updated');
   }
+  
+  function summaryHandler () {
+      setShowSummary(!showSummary);
+  }
 
   return (
       <div>
-        <NavbarTest/>
-        <MenuBoard meals={menu.meals} onMenuUpdate={updateMenu}/>
+        <NavbarTest handleSummary={summaryHandler}/>
+        <MenuBoard 
+            orderLines={state.orderLines} 
+            meals={menu.meals} 
+            onMenuUpdate={updateMenu} 
+            dispatch={dispatch}
+            summaryStatus={showSummary}
+        />
         <Footer/>
       </div>
   );
@@ -39,7 +61,11 @@ const Footer = () => {
   )
 }
 
-const NavbarTest = () => {
+const NavbarTest = (props) => {
+    function showSummary() {
+        props.handleSummary();
+    }
+    
   return (
     <>
       <Navbar>
@@ -51,6 +77,7 @@ const NavbarTest = () => {
               height="70"
               className="d-inline-block align-top"
               id= "navbarItem"
+              onClick={showSummary}
             ></img>
           </Navbar.Brand>
           <Navbar.Brand href="#">
