@@ -17,20 +17,24 @@ function MenuBoard ({dispatch, ...props}) {
 
     function showSoups(){
         setIsShownSoups(true);
+        props.handleSummary(false);
     }
     function showMainDishes(){
         
         setIsShownMainDish(true);
+        props.handleSummary(false);
     }
 
     function showDesserts(){
         
         setIsShownDesserts(true);
+        props.handleSummary(false);
     }
 
     function showDrinks(){
         
         setIsShownDrinks(true);
+        props.handleSummary(false);
     }
     function hideSoups(){
         setIsShownSoups(false);

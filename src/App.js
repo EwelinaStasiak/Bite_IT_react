@@ -66,6 +66,7 @@ const App = () => {
             isShownMenu={isShownMenu} 
             isShownMainPage={isShownMainPage}
             summaryStatus={showSummary}
+            handleSummary={summaryHandler}
         />
         <Footer/>
       </div>
