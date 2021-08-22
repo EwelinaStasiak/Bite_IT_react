@@ -1,16 +1,12 @@
 import './App.css';
-import { Container, Navbar} from 'react-bootstrap';
 import React, { useReducer, useState} from 'react';
-import Logo from './img/logo.png';
-import Waiter from './img/waiter.png';
-import Menu from './img/menu.png';
-import Order from './img/order.png';
 import MenuBoard from "./Pages/BoardLayout/MenuBoard";
 import SiteNavbar from "./Pages/BoardLayout/SiteNavbar";
 
 
 const App = () => {
   const [menu, setMenu] = useState({meals: []});
+  const [showSummary, setShowSummary] = useState(false);
   const [isShownMenu, setIsShownMenu] = useState(false);
   const [isShownMainPage, setIsShownMainPage] = useState(true);
   
@@ -24,10 +20,15 @@ const App = () => {
     return old;
 }, {orderLines: []});
   
+  console.log("order line: ", state.orderLines);
   
   function updateMenu (newMenu){
       setMenu(newMenu);
       console.log('menu updated');
+  }
+  
+  function summaryHandler (value) {
+      setShowSummary(value);
   }
 
   function showMenu(){
@@ -50,8 +51,22 @@ const App = () => {
   console.log(isShownMenu);
   return (
       <div>
-        <SiteNavbar onShowMenu={showMenu} onShowMainPage={showMainPage} onHideMainPage={hideMainPage} onHideMenu={hideMenu}/>
-        <MenuBoard meals={menu.meals} onMenuUpdate={updateMenu} isShownMenu={isShownMenu} isShownMainPage={isShownMainPage}/>
+        <SiteNavbar 
+            onShowMenu={showMenu} 
+            onShowMainPage={showMainPage} 
+            onHideMainPage={hideMainPage} 
+            onHideMenu={hideMenu}
+            handleSummary={summaryHandler}
+        />
+        <MenuBoard
+            meals={menu.meals} 
+            orderLines={state.orderLines} 
+            dispatch={dispatch} 
+            onMenuUpdate={updateMenu} 
+            isShownMenu={isShownMenu} 
+            isShownMainPage={isShownMainPage}
+            summaryStatus={showSummary}
+        />
         <Footer/>
       </div>
   );
@@ -71,6 +86,5 @@ const Footer = () => {
   
   )
 }
-
 
 export default App;

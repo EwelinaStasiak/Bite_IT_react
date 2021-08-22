@@ -12,6 +12,11 @@ const SiteNavbar = (props) => {
     function onClickMenuHandler(){
         props.onShowMenu();
         props.onHideMainPage();
+        props.handleSummary(false);
+    }
+
+    function showSummary() {
+        props.handleSummary(true);
     }
     function onClickMainPageHandler(){
         props.onHideMenu();
@@ -57,6 +62,7 @@ const SiteNavbar = (props) => {
                 height="100"
                 className="d-inline-block align-top"
                 id= "navbarItem"
+                onClick={showSummary}
               ></img>
             </Navbar.Brand>
           </Container>
