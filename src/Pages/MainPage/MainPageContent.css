@@ -9,6 +9,10 @@
     /* overflow: scroll; */
 }
 
+.scrollable {
+    overflow: scroll;
+}
+
 .title {
     font-size: 2em;
     text-transform: uppercase;

@@ -15,9 +15,8 @@ function OrderSummary(props) {
     }
     
     return(
-        <div className="board-content-container">
+        <div className="board-content-container scrollable">
             <h1 className="summery-title"><u>Podsumowanie:</u></h1>
-            {/*{console.log("summery", props.order.length, props.order > 0)}*/}
             {props.error && <p>{props.error}</p>}
             {(!props.error && props.order.length > 0) ?
                 (<div>
@@ -29,10 +28,6 @@ function OrderSummary(props) {
                 </div>) :
                 <p>Koszyk jest pusty</p>
             }
-            {/*{props.order > 0 && <h2 id="order-id">Zamówienie nr <strong>{props.order[0].orderId}</strong></h2>}*/}
-            {/*{!props.error && props.order > 0  && <OrderedMeals meals={props.order} />}*/}
-            {/*{!props.error && props.order > 0 && <OrderSum meals={props.order} />}*/}
-            {/*{!props.error && props.order <= 0 && <p>Koszyk jest pusty</p>}*/}
         </div>
     )
 }
