@@ -1,0 +1,9 @@
+.meal-price-display {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.meal-price-display p {
+    margin-right: 1vw;
+}
