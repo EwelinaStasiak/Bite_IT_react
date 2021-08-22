@@ -1,0 +1,42 @@
+.pay-btn-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1vh 3vw;
+}
+
+.pay-btn-container button {
+    height: 30px;
+    width: 35%;
+    border: none;
+    border-radius: 30px;
+    background-color: #a6c307;
+    font-size: 0.6em;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: black;
+    cursor: pointer;
+}
+
+/*.back-btn {*/
+/*    height: 30px;*/
+/*    width: 35%;*/
+/*    border: none;*/
+/*    border-radius: 30px;*/
+/*    background-color: #a6c307;*/
+/*    font-size: 0.6em;*/
+/*    font-family: sans-serif;*/
+/*    font-weight: bold;*/
+/*    text-transform: uppercase;*/
+/*    color: black;*/
+/*}*/
+
+/*.pay-u-btn {*/
+/*    height: 30px;*/
+/*    width: 35%;*/
+/*    margin: 0;*/
+/*    border: none;*/
+/*    background: url('http://static.payu.com/pl/standard/partners/buttons/payu_account_button_long_03.png') no-repeat;*/
+/*    background-size: contain;*/
+/*    cursor: pointer;*/
+/*}*/

@@ -6,10 +6,16 @@
     width: 100%;
     /*background: red;*/
     color: white;
+    /* overflow: scroll; */
+}
+
+.scrollable {
+    overflow: scroll;
 }
 
 .title {
     font-size: 2em;
+    text-transform: uppercase;
 }
 
 .meals-list {
@@ -43,4 +49,8 @@
 
 .down-arrow {
     font-size: 0.5em;
+}
+
+.meal-price {
+    padding-right: 1.5vw;
 }
