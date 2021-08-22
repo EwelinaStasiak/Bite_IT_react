@@ -1,0 +1,30 @@
+#categoryMenu{
+    margin-top: 2vh;
+    position: absolute;
+    margin-left: 25vh;
+    
+}
+#categoryMenuBtn{
+    background-color: transparent;
+    color: #f2f2f2;
+    height: 6vh;
+    width: 6vw;
+    border-top: transparent;
+    border-left: transparent;
+    border-bottom-right-radius: 2vh;
+    border-color: #262626;
+    border-width: 3px;
+    font-family: "Bradley Hand", sans-serif;
+    font-size: 2vh;
+    font-weight: bolder;
+    padding: 0vh;
+}
+
+#categoryMenuBtn:hover{
+    color: #568C04;
+}
+
+#categoryMenuBtn:focus{
+    color: green;
+    border-color: rgb(89, 209, 89); 
+}

@@ -4,7 +4,7 @@ function OderSum(props) {
     let sum = 0;
     
     function computeOrderSum() {
-        return sum === 0 ? props.meals.map(meal => sum += meal.price) : sum;
+        return sum === 0 ? props.meals.map(meal => sum += meal.meal.price) : sum;
 
     }
 

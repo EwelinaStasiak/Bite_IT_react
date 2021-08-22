@@ -17,10 +17,10 @@ function OrderSummary(props) {
     return(
         <div className="board-content-container">
             <h1 className="summery-title"><u>Podsumowanie:</u></h1>
-            <h2 id="order-id">Zamówienie nr <strong>{props.order.id}</strong></h2>
+            <h2 id="order-id">Zamówienie nr <strong>{props.order[0].orderId}</strong></h2>
             {props.error && <p>{props.error}</p>}
-            {!props.error && <OrderedMeals meals={props.order.meals} />}
-            {!props.error && <OrderSum meals={props.order.meals} />}
+            {!props.error && <OrderedMeals meals={props.order} />}
+            {!props.error && <OrderSum meals={props.order} />}
             <PayCheckbox onCheck={checkHandler} />
             <SummaryBtns />
         </div>

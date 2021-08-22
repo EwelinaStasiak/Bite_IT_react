@@ -1,6 +1,7 @@
 import MainPageContent from "../MainPage/MainPageContent";
 import './MenuContainer.css';
 import OrderSummary from "../FinaliseOrder/OrderSummary";
+import MenuContent from "../MenuPage/MenuContent";
 
 const testOrder = {
     id: "add6acbcadz",
@@ -50,29 +51,17 @@ const testOrder = {
 }
 
 function MenuContainer({dispatch, ...props}) {
-    //const [filteredMenu, setFilteredMenu] = useState(props.meals);
-    //
-    // useEffect(() => {
-    //     setFilteredMenu(props.meals);
-    // }, [props.meals])
-    //
-    // function filterHandler(filtered) {
-    //     setFilteredMenu(filtered);
-    // }
     
     return (
-        <div className="content-container content-container-width">
-            {/*{console.log("type of ", typeof props.orderLines)}*/}
-{/*<<<<<<< HEAD*/}
-            {!props.summaryStatus ? 
-                <MainPageContent orderLines={props.orderLines}  meals={props.meals} error={props.error} dispatch={dispatch}/> :
-                <OrderSummary order={testOrder} error={props.error}/>
-            }
-{/*=======*/}
-{/*            <MainPageContent orderLines={props.orderLines} meals={props.meals} error={props.error} dispatch={dispatch}/>*/}
-{/*>>>>>>> development*/}
-            {/*<MainPageButtons meals={filteredMenu} onFilter={filterHandler} />*/}
-        </div>
+        <>
+            {console.log("menu container type of ", props.orderLines)}
+            <div className="content-container content-container-width">
+                {props.isShownMainPage && !props.summaryStatus && <MainPageContent orderLines={props.orderLines} dispatch={dispatch} meals={props.meals} error={props.error}/>}
+                {props.isShownMenu && !props.summaryStatus && <MenuContent meals={props.meals} soups={props.soups} mainDishes={props.mainDishes} desserts={props.desserts} drinks={props.drinks}/>}
+                {props.summaryStatus && <OrderSummary order={props.orderLines} error={props.error}/>}
+                {/* <MainPageButtons /> */}
+            </div>
+        </>
     )
 }
 

@@ -1,15 +1,15 @@
 import './App.css';
-import { Container, Navbar} from 'react-bootstrap';
 import React, { useReducer, useState} from 'react';
-import Logo from './img/logo.png';
-import Waiter from './img/waiter.png';
-import Menu from './img/menu.png';
-import Order from './img/order.png';
 import MenuBoard from "./Pages/BoardLayout/MenuBoard";
+import SiteNavbar from "./Pages/BoardLayout/SiteNavbar";
+
 
 const App = () => {
   const [menu, setMenu] = useState({meals: []});
   const [showSummary, setShowSummary] = useState(false);
+  const [isShownMenu, setIsShownMenu] = useState(false);
+  const [isShownMainPage, setIsShownMainPage] = useState(true);
+  
   const [state, dispatch] = useReducer((old, action) => {
     switch(action.type) {
         case "addToOrder":
@@ -27,18 +27,44 @@ const App = () => {
       console.log('menu updated');
   }
   
-  function summaryHandler () {
-      setShowSummary(!showSummary);
+  function summaryHandler (value) {
+      setShowSummary(value);
   }
 
+  function showMenu(newValue){
+
+    setIsShownMenu(newValue);
+    
+  }
+
+  function hideMenu(){
+    setIsShownMenu(false);
+  }
+
+  function showMainPage(){
+    setIsShownMainPage(true);
+  }
+
+  function hideMainPage(){
+    setIsShownMainPage(false);
+  }
+  console.log(isShownMenu);
   return (
       <div>
-        <NavbarTest handleSummary={summaryHandler}/>
-        <MenuBoard 
-            orderLines={state.orderLines} 
+        <SiteNavbar 
+            onShowMenu={showMenu} 
+            onShowMainPage={showMainPage} 
+            onHideMainPage={hideMainPage} 
+            onHideMenu={hideMenu}
+            handleSummary={summaryHandler}
+        />
+        <MenuBoard
             meals={menu.meals} 
+            orderLines={state.orderLines} 
+            dispatch={dispatch} 
             onMenuUpdate={updateMenu} 
-            dispatch={dispatch}
+            isShownMenu={isShownMenu} 
+            isShownMainPage={isShownMainPage}
             summaryStatus={showSummary}
         />
         <Footer/>
@@ -61,55 +87,4 @@ const Footer = () => {
   )
 }
 
-const NavbarTest = (props) => {
-    function showSummary() {
-        props.handleSummary();
-    }
-    
-  return (
-    <>
-      <Navbar>
-        <Container>
-          <Navbar.Brand href="#">
-            <img
-              src={Logo}
-              width="70"
-              height="70"
-              className="d-inline-block align-top"
-              id= "navbarItem"
-              onClick={showSummary}
-            ></img>
-          </Navbar.Brand>
-          <Navbar.Brand href="#">
-            <img
-              src={Waiter}
-              width="70"
-              height="70"
-              className="d-inline-block align-top"
-              id= "navbarItem"
-            ></img>
-          </Navbar.Brand>
-          <Navbar.Brand href="#">
-            <img
-              src={Menu}
-              width="70"
-              height="70"
-              className="d-inline-block align-top"
-              id= "navbarItem"
-            ></img>
-          </Navbar.Brand>
-          <Navbar.Brand href="#">
-            <img
-              src={Order}
-              width="70"
-              height="70"
-              className="d-inline-block align-top"
-              id= "navbarItem"
-            ></img>
-          </Navbar.Brand>
-        </Container>
-      </Navbar>
-    </>
-  )
-}
 export default App;

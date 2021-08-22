@@ -1,7 +1,9 @@
 .menu-board {
     display: flex;
     justify-content: center;
-    margin: -7vh auto auto;
+    position: relative;
+    margin-top: 2vh;
+    /* margin: -7vh auto auto; */
     height: 100%;
 }
 
