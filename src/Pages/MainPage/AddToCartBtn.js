@@ -1,9 +1,16 @@
 import "./AddToCartBtn.css";
 import cartImage from "../../../src/img/add-to-cart-icon-23.jpeg";
-// import cartImage from "../../../src/img/white-shopping-cart-icon-png-19.jpeg";
-
 
 function AddToCartBtn({dispatch, ...props}) {
+
+    function todaysDate()
+    {
+        var today = new Date();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = date+' '+time;
+        return dateTime;
+    }
 
     async function postData(orderId, mealId){
       const result = await fetch('https://localhost:5001/OrderLine',{
@@ -17,32 +24,58 @@ function AddToCartBtn({dispatch, ...props}) {
                 "mealId": mealId
           })
       })  
-      console.log(result)
     };
 
-    async function getData () {
-        try {
-            //dispatch({ type: "startLoading" })
-            const response = await fetch('https://localhost:5001/OrderLine/2');
-            //throwErrorMessage(response);
-            const data = await response.json();
-            //const orderLinesApi = JSON.stringify(data);
-            dispatch({ type: "addToOrder", item: data });          
-        } catch (error) {           
-        }
+    async function postCreateOrder(){
+        const result = await fetch('https://localhost:5001/Order',{
+            method: 'post',
+            headers:{
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                "tableNumber": 1,
+                "restaurantId": 1,
+                "creationDate": todaysDate()
+            })
+        }) 
+        .then(response=>response.json())
+        .then(data=>{console.log(data.id)});   
+      };
+    
+    const randomNumber = Math.floor(Math.random()*500)+1;
+    
+
+    function showConfirmAddToOrder()
+    {
+        alert("Dodałeś " + props.mealId +" do zamówienia");
     }
 
-    const clickHandler = () => {
-        postData(2,props.mealId); 
-        getData();
-        if(JSON.stringify(props.orderLines[0].meal.name)!=''){
-            console.log('props:' + JSON.stringify(props.orderLines[0].meal));  
-        }
-        else{
-            console.log("not yet")
-        }
-        
-    };
+    function createOrderInState()
+    {
+        postCreateOrder();//?????
+        dispatch({type:"createOrderId", item : randomNumber})
+    }
+
+    function addToState(OrderId,mealId)
+    {
+        dispatch({type:"addMealToOrder", item: mealId})
+    }
+
+    function clickHandler(){
+        if (props.state.orderId.length === 0)
+        {
+            createOrderInState(randomNumber);
+        }       
+            addMealToOrder();
+    }
+    
+    function addMealToOrder()
+    {      
+        addToState(props.state.orderId, props.mealId);
+        postData(randomNumber, props.mealId);
+        showConfirmAddToOrder();      
+    }
 
     return(
         <button onClick={clickHandler} className="add-to-cart-btn" >

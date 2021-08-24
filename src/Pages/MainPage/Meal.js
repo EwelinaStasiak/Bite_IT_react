@@ -15,16 +15,8 @@ function Meal ({dispatch, ...props}) {
         <li className="meals-list" key={props.meal.id}>
             <div className="meal-name">
                 <span onClick={toggleShowStatus}>{props.meal.name}</span>
-                {/*<span className="down-arrow">*/}
-                {/*   {listIsShown ? ' 🔼' : ' 🔽'}*/}
-                {/*</span>*/}
-{/*<<<<<<< HEAD*/}
-                <CartBtn orderLines={props.orderLines} mealId={props.meal.id} dispatch={dispatch}/>
-{/*=======*/}
-{/*                <AddToCartBtn orderLines={props.orderLines} mealId={props.meal.id} dispatch={dispatch}/>*/}
-{/*>>>>>>> development*/}
+                <CartBtn state={props.state} mealId={props.meal.id} dispatch={dispatch}/>
             </div>
-            {/*<br/>*/}
             {listIsShown && <IngredientsList meal={props.meal}/>}
         </li>
     );

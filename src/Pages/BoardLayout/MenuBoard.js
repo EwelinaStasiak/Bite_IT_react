@@ -130,7 +130,7 @@ function MenuBoard ({dispatch, ...props}) {
                 <img alt="menu-board" src={Board} className="board-img"/>
                 {/*{console.log("type of ", typeof props.orderLines)}*/}
                 <MenuContainer 
-                    orderLines={props.orderLines} 
+                    state={props.state} 
                     meals={filteredMenu} 
                     error={error} 
                     dispatch={dispatch}

@@ -9,18 +9,23 @@ const App = () => {
   const [showSummary, setShowSummary] = useState(false);
   const [isShownMenu, setIsShownMenu] = useState(false);
   const [isShownMainPage, setIsShownMainPage] = useState(true);
-  
+
   const [state, dispatch] = useReducer((old, action) => {
     switch(action.type) {
         case "addToOrder":
             return {...old, orderLines:action.item };
         case "removeFromOrder":
             return old.filter(i => i !== action.item);
+        case "createOrderId" :
+          return{...old, orderId:action.item};
+        case "addMealToOrder":
+          return{...old, orderLines:[...old.orderLines, action.item] };      
     }        
-    return old;
-}, {orderLines: []});
+    
+}, {orderLines: [], orderId:''});
   
-  console.log("order line: ", state.orderLines);
+  console.log("Aktualna zawartość zamówienia: ", state.orderLines);
+  console.log("Aktualny numer zamówienia: ", state.orderId);
   
   function updateMenu (newMenu){
       setMenu(newMenu);
@@ -60,7 +65,7 @@ const App = () => {
         />
         <MenuBoard
             meals={menu.meals} 
-            orderLines={state.orderLines} 
+            state={state} 
             dispatch={dispatch} 
             onMenuUpdate={updateMenu} 
             isShownMenu={isShownMenu} 

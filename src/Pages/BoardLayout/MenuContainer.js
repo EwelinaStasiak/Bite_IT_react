@@ -54,10 +54,10 @@ function MenuContainer({dispatch, ...props}) {
     
     return (
         <>
-            {console.log("menu container type of ", props.orderLines)}
+            {console.log("menu container type of ", props.state.orderLines)}
             <div className="content-container content-container-width">
                 {props.isShownMainPage && !props.summaryStatus && <MainPageContent
-                    orderLines={props.orderLines}
+                    state={props.state}
                     dispatch={dispatch}
                     meals={props.meals}
                     error={props.error}/>}
@@ -66,10 +66,10 @@ function MenuContainer({dispatch, ...props}) {
                     soups={props.soups}
                     mainDishes={props.mainDishes}
                     desserts={props.desserts}
-                    orderLines={props.orderLines}
+                    state={props.state}
                     dispatch={dispatch}
                     drinks={props.drinks}/>}
-                {props.summaryStatus && <OrderSummary order={props.orderLines} error={props.error}/>}
+                {props.summaryStatus && <OrderSummary state={props.state} error={props.error}/>}
                 {/* <MainPageButtons /> */}
             </div>
         </>
