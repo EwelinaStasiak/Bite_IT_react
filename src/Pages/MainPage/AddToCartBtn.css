@@ -4,7 +4,9 @@
     /*margin: 0 3vw 0 0;*/
     /*padding: 0;*/
     width: 3vh;
+    min-width: 3vh;
     height: 3vh;
+    min-height: 3vh;
     background-color: white;
     /*background: none;*/
     border: 0;

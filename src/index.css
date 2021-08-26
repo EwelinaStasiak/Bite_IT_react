@@ -1,13 +1,16 @@
+@import url("https://fonts.googleapis.com/css?family=Architects+Daughter");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Architects Daughter", sans-serif;
 }
 
 body {
   /*text-align: center;*/
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', "Bradley Hand",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -16,6 +19,11 @@ body {
   background-image: url("./img/background.png");
   background-size: cover;
 }
+
+/*@font-face {*/
+/*  font-family: "Bradley Hand";*/
+/*  src: url("./src/fonts/bradhitc.ttf") format('truetype');*/
+/*}*/
 
 /*@media screen and (max-width: 480px) {*/
 /*  body {*/

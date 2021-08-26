@@ -9,10 +9,21 @@
 .meal-price-container span {
     padding: 0.5vh 0 0 1vw;
     border-top: 2px solid white;
-    font-size: 20px;
 }
 
 .meal-price {
     margin-bottom: 0;
     padding-left: 1vw;
+}
+
+.meal-price,
+.meal-price-container span {
+    font-size: 3vh;
+}
+
+@media only screen and (orientation: portrait) {
+    .meal-price,
+    .meal-price-container span {
+        font-size: 3vw;
+    }
 }

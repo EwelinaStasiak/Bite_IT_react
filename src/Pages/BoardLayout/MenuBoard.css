@@ -27,6 +27,6 @@
     .menu-board {
         max-width: 100vw;
         grid-template-columns: 0.9fr 59vw 1fr;
-        grid-template-rows: 9vw 81vw 9vw;
+        grid-template-rows: 11vw 79vw 9vw;
     }
 }

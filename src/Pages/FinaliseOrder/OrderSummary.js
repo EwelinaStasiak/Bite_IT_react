@@ -19,7 +19,7 @@ function OrderSummary(props) {
             <h1 className="summery-title"><u>Podsumowanie:</u></h1>
             {props.error && <p>{props.error}</p>}
             {(!props.error && props.order.length > 0) ?
-                (<div>
+                (<div className="ordered-meals-list-container">
                     <h2 id="order-id">Zamówienie nr <strong>{props.order[0].orderId}</strong></h2>
                     <OrderedMeals meals={props.order} />
                     <OrderSum meals={props.order} />

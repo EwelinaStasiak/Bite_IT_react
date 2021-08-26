@@ -1,16 +1,39 @@
 .summery-title {
     margin-bottom: 1vh;
-    font-size: 2em;
+    font-size: 4vh;
     text-transform: uppercase;
 }
 
 #order-id {
-    margin-top: 0;
+    margin: 2vh 0;
     text-align: center;
-    font-size: 0.8em;
+    font-size: 3vh;
 }
 
 #order-id strong {
     font-family: sans-serif;
     font-weight: bold;
+}
+
+.no-li-mark {
+    list-style: none;
+    padding-left: 0;
+}
+
+@media only screen and (orientation: portrait) {
+    .summery-title {
+        margin-bottom: 1vw;
+        font-size: 4vw;
+        text-transform: uppercase;
+    }
+
+    #order-id {
+        margin: 2vw 0;
+        font-size: 3vw;
+    }
+
+    .meal-price,
+    .meal-price span {
+        padding-right: 1.5vw;
+    }
 }

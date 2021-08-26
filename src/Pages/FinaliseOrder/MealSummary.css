@@ -5,5 +5,11 @@
 }
 
 .meal-price-display p {
-    margin-right: 1vw;
+    margin-right: 1vh;
+}
+
+@media only screen and (orientation: portrait) {
+    .meal-price-display p {
+        margin-right: 1vw;
+    }
 }

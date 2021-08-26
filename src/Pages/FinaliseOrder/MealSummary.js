@@ -4,7 +4,7 @@ import {useState} from "react";
 
 function MealSummary(props) {
     return(
-        <li className="meals-list" key={props.meal.id}>
+        <li className="meals-list no-li-mark" key={props.meal.id}>
             <div className="meal-name">
                 <p>{props.meal.name}</p>
                 <div className="meal-price-display">

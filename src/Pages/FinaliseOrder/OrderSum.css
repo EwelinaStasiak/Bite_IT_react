@@ -10,7 +10,7 @@
 
 .order-sum div {
     margin: 0;
-    padding: 0 0 0.5vh 1vw;
+    padding: 0 0 1vh 1vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -27,13 +27,39 @@
 
 .order-sum div p,
 .order-sum div span {
-    font-size: 0.8em;
+    font-size: 2vh;
+}
+
+#final-price {
+    align-items: flex-end;
 }
 
 #final-price p {
-    font-size: 1.2em;
+    font-size: 2.5vh;
 }
 
 #final-price span {
-    font-size: 1.5em;
+    font-size: 4vh;
+}
+
+@media only screen and (orientation: portrait) {
+    .order-sum div {
+        padding: 0 0 1vw 1vw;
+    }
+
+    .order-sum div:first-child {
+        padding-top: 1vw;
+    }
+    .order-sum div p,
+    .order-sum div span {
+        font-size: 2vw;
+    }
+    
+    #final-price p {
+        font-size: 2.5vw;
+    }
+
+    #final-price span {
+        font-size: 4vw;
+    }
 }

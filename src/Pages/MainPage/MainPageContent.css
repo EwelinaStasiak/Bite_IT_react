@@ -12,6 +12,7 @@
 }
 
 .title {
+    margin-bottom: 2vh;
     font-size: 4vh;
     text-transform: uppercase;
 }
@@ -33,11 +34,16 @@
     list-style-type: "🍴";
     /*margin-left: 2vh;*/
     list-style-position: outside;
+    padding-left: 4vh;
+}
+
+.ordered-meals-list-container {
+    width: 100%;
 }
 
 .meal-details {
     width: 98%;
-    margin-bottom: 0.7em;
+    margin: 0.7em 0;
  }
 
 .meal-name {
@@ -52,23 +58,16 @@
     font-size: 0.5em;
 }
 
-.meal-price {
-    padding-right: 1.3vh;
-}
-
 @media only screen and (orientation: portrait) {
     .title {
+        margin-bottom: 2vw;
         font-size: 5vw;
         margin-top: 2vw;
     }
     
     .meals-list {
         font-size: 4vw;
-        margin-left: 4vw;
+        padding-left: 4vw;
         /*max-width: 59vw;*/
-    }
-
-    .meal-price {
-        padding-right: 1.5vw;
     }
 }
