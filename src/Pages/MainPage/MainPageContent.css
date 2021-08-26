@@ -47,16 +47,12 @@
  }
 
 .meal-name {
-    /*max-width: 52vh;*/
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
 }
 
-.down-arrow {
-    font-size: 0.5em;
-}
 
 @media only screen and (orientation: portrait) {
     .title {
@@ -68,6 +64,5 @@
     .meals-list {
         font-size: 4vw;
         padding-left: 4vw;
-        /*max-width: 59vw;*/
     }
 }

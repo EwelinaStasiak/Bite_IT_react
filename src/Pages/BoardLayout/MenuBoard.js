@@ -1,10 +1,11 @@
 import './MenuBoard.css';
 import Board from '../../img/menuBoard.png';
 import MenuContainer from "./MenuContainer";
-import {useEffect, useReducer, useState} from "react";
+import React, {useEffect, useReducer, useState} from "react";
 import FilterBtns from "../MainPage/FilterBtns";
 //import { HubConnectionBuilder } from '@microsoft/signalr';
 import CategoryMenu from "../MenuPage/CategoryMenu";
+import Footer from "../BoardLayout/Footer";
 
 
 function MenuBoard ({dispatch, ...props}) {
@@ -144,7 +145,9 @@ function MenuBoard ({dispatch, ...props}) {
                 dispatch={dispatch}
                 summaryStatus={props.summaryStatus}
                 isShownMainPage={props.isShownMainPage} isShownMenu={props.isShownMenu} soups={isShownSoups} 
-                mainDishes={isShownMainDishes} desserts={isShownDesserts} drinks={isShownDrinks}/>
+                mainDishes={isShownMainDishes} desserts={isShownDesserts} drinks={isShownDrinks}
+            />
+            <Footer/>
         </div>
         
     )

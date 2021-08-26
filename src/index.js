@@ -3,10 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {Helmet} from 'react-helmet';
 
 ReactDOM.render(
   <React.StrictMode>
-    <meta name="viewport" content="width=device-width initial-scale=1.0"/>
+      <Helmet 
+          htmlAttributes={{lang: 'pl'}}
+          meta={[
+              {
+                  name: "viewport",
+                  content: "width=device-width initial-scale=1.0"
+              }
+          ]} 
+      />
+    {/*<meta name="viewport" content="width=device-width initial-scale=1.0"/>*/}
+      {/*<meta http-equiv="content-language" content="pl-pl" />*/}
     <App />
   </React.StrictMode>,
   document.getElementById('root')

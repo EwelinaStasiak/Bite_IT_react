@@ -1,9 +1,7 @@
 .main-page-btns-container {
     text-align: right;
     padding-right: 0.5em;
-    /*justify-content: space-around;*/
     height: 5vh;
-    /*background-color: aquamarine;*/
     align-content: end;
 }
 
@@ -12,5 +10,4 @@
     height: 70%;
     width: auto;
     min-width: 10vh;
-    /*background: none;*/
 }

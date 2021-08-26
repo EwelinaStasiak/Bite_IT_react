@@ -2,6 +2,7 @@ import MainPageContent from "../MainPage/MainPageContent";
 import './MenuContainer.css';
 import OrderSummary from "../FinaliseOrder/OrderSummary";
 import MenuContent from "../MenuPage/MenuContent";
+import Footer from "./Footer";
 
 const testOrder = {
     id: "add6acbcadz",

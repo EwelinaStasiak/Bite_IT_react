@@ -1,15 +1,56 @@
+.meal-name p {
+    font-size: 2.8vh;
+}
+
 .meal-price-display {
     display: flex;
     flex-direction: row;
     justify-content: left;
 }
 
-.meal-price-display p {
+.meal-edition{
+}
+
+.meal-edition img {
+    max-height: 2vh;
+    width: auto;
+    
+}
+
+.meal-count {
+    display: flex;
+    flex-direction: row;
+}
+
+.meal-count p {
     margin-right: 1vh;
 }
 
+.meal-count p span {
+    font-size: 3vh;
+}
+
+.lit-on-hover:hover,
+.lit-on-hover:hover {
+    color: lightcoral;
+}
+
+.no-li-mark {
+    margin-bottom: 2vh;
+    list-style: none;
+    padding-left: 0;
+}
+
 @media only screen and (orientation: portrait) {
+    .meal-name p {
+        font-size: 2.8vw;
+    }
+    
     .meal-price-display p {
         margin-right: 1vw;
+    }
+
+    .no-li-mark {
+        margin-bottom: 3vw;
     }
 }

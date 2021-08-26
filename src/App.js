@@ -2,6 +2,7 @@ import './App.css';
 import React, { useReducer, useState} from 'react';
 import MenuBoard from "./Pages/BoardLayout/MenuBoard";
 import SiteNavbar from "./Pages/BoardLayout/SiteNavbar";
+// import Footer from "./Pages/BoardLayout/Footer";
 
 
 const App = () => {
@@ -68,24 +69,8 @@ const App = () => {
             summaryStatus={showSummary}
             handleSummary={summaryHandler}
         />
-        {/*<Footer/>*/}
       </div>
   );
-}
-
-const Footer = () => {
-  return (
-    <>
-      <p className="footer">
-        ©Bite-IT 2021
-        <p>
-        Kamil Trąba, Wojciech Dziadon, Szymon Pluta, Ewelina Stasiak
-        </p>
-      </p>
-    </>
-    
-  
-  )
 }
 
 export default App;

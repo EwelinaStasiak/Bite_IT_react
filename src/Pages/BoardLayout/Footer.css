@@ -1,0 +1,17 @@
+﻿.footer {
+    grid-column: 2 / span 1;
+    grid-row: -2 / span 1;
+    margin-top: 1.5vh;
+    /*margin-bottom: 3vh;*/
+    /*position: fixed;*/
+    /*left: 0;*/
+    /*bottom: 0;*/
+    width: 100%;
+    color: #f2f2f2;
+    text-align: center;
+    font-family: "Brush Script MT", sans-serif;
+    line-height: 2vh;
+    font-size: 2vh;
+    align-items: center;
+    /*font-size: medium;*/
+}

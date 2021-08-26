@@ -8,20 +8,9 @@
     background-size: contain;
     
     display: grid;
-    /*grid-template-columns: 9rem 53vh 10rem;*/
     grid-template-columns: 1fr 53vh 1fr;
     grid-template-rows: 9vh 1fr 9vh;
 }
-
-/*.board-img {*/
-/*    grid-column: 1 / -1;*/
-/*    grid-row: 1 / -1;*/
-/*    !*object-fit: contain;*!*/
-/*    object-fit: cover;*/
-/*    height: 100%;*/
-/*    width: auto;*/
-/*    max-width: 980px;*/
-/*}*/
 
 @media only screen and (orientation: portrait) {
     .menu-board {

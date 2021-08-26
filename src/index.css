@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css?family=Architects+Daughter");
+@import url("https://fonts.googleapis.com/css?family=Caveat");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Architects Daughter", sans-serif;
+  font-family: "Caveat", sans-serif;
 }
 
 body {
@@ -19,11 +19,6 @@ body {
   background-image: url("./img/background.png");
   background-size: cover;
 }
-
-/*@font-face {*/
-/*  font-family: "Bradley Hand";*/
-/*  src: url("./src/fonts/bradhitc.ttf") format('truetype');*/
-/*}*/
 
 /*@media screen and (max-width: 480px) {*/
 /*  body {*/
