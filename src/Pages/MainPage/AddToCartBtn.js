@@ -35,12 +35,12 @@ function AddToCartBtn({dispatch, ...props}) {
     const clickHandler = () => {
         postData(2,props.mealId); 
         getData();
-        if(JSON.stringify(props.orderLines[0].meal.name)!=''){
-            console.log('props:' + JSON.stringify(props.orderLines[0].meal));  
-        }
-        else{
-            console.log("not yet")
-        }
+        // if(JSON.stringify(props.orderLines[0].meal.name)!=''){
+        //     console.log('props:' + JSON.stringify(props.orderLines[0].meal));  
+        // }
+        // else{
+        //     console.log("not yet")
+        // }
         
     };
 

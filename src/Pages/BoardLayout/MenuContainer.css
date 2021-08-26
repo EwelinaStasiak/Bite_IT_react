@@ -1,37 +1,31 @@
 .content-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 83vh;
-    width: 33vw;
-    /*width: 500px;*/
-    /*background: blue;*/
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
     color: white;
     font-family: "Bradley Hand", sans-serif;
 }
 
-@media only screen and (max-height: 1024px) {
-    .content-container-width {
-        width: 490px;
-        /*width: 38vw;*/
-    }
-}
+/*@media only screen and (max-height: 1024px) {*/
+/*    .content-container-width {*/
+/*        width: 490px;*/
+/*        !*width: 38vw;*!*/
+/*    }*/
+/*}*/
 
-@media only screen and (max-height: 800px) {
-    .content-container-width {
-        width: 390px;
-    }
-}
+/*@media only screen and (max-height: 800px) {*/
+/*    .content-container-width {*/
+/*        width: 390px;*/
+/*    }*/
+/*}*/
 
-@media only screen and (max-height: 750px) {
-    .content-container-width {
-        width: 15vw
-    }
-}
+/*@media only screen and (max-height: 750px) {*/
+/*    .content-container-width {*/
+/*        width: 15vw*/
+/*    }*/
+/*}*/
 
-@media only screen and (max-height: 550px) {
-    .content-container-width {
-        width: 15vw
-    }
-}
+/*@media only screen and (max-height: 550px) {*/
+/*    .content-container-width {*/
+/*        width: 15vw*/
+/*    }*/
+/*}*/

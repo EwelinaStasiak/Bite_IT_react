@@ -1,4 +1,5 @@
 import '../../App.css';
+import './SiteNavbar.css';
 import { Container, Navbar} from 'react-bootstrap';
 import React, { useState} from 'react';
 import Logo from '../../img/logo.png';
@@ -24,33 +25,27 @@ const SiteNavbar = (props) => {
     }
 
     return (
-      <div id="navbarContainer">
-        <Navbar>
-          <Container>
+      // <div id="navbarContainer">
+        <Navbar id="navbar">
+          <Container id="navbarContainer">
             <Navbar.Brand href="#" onClick={onClickMainPageHandler}>
               <img
                 src={Logo}
-                width="100"
-                height="100"
-                className="d-inline-block align-top"
+                className="d-inline-block align-top nav-image"
                 id= "navbarItem"
               ></img>
             </Navbar.Brand>
             <Navbar.Brand href="#">
               <img
                 src={Waiter}
-                width="100"
-                height="100"
-                className="d-inline-block align-top"
+                className="d-inline-block align-top nav-image"
                 id= "navbarItem"
               ></img>
             </Navbar.Brand>
             <Navbar.Brand onClick={onClickMenuHandler} href="#">
               <img
                 src={Menu}
-                width="100"
-                height="100"
-                className="d-inline-block align-top"
+                className="d-inline-block align-top nav-image"
                 id= "navbarItem"
                 onClick={onClickMenuHandler}
               ></img>
@@ -58,16 +53,14 @@ const SiteNavbar = (props) => {
             <Navbar.Brand href="#">
               <img
                 src={Order}
-                width="100"
-                height="100"
-                className="d-inline-block align-top"
+                className="d-inline-block align-top nav-image"
                 id= "navbarItem"
                 onClick={showSummary}
               ></img>
             </Navbar.Brand>
           </Container>
         </Navbar>
-      </div>
+      // </div>
     )
   }
 

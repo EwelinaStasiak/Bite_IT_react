@@ -54,22 +54,35 @@ function MenuContainer({dispatch, ...props}) {
     
     return (
         <>
-            {console.log("menu container type of ", props.orderLines)}
             <div className="content-container content-container-width">
-                {props.isShownMainPage && !props.summaryStatus && <MainPageContent
-                    orderLines={props.orderLines}
-                    dispatch={dispatch}
-                    meals={props.meals}
-                    error={props.error}/>}
-                {props.isShownMenu && !props.summaryStatus && <MenuContent
-                    meals={props.meals}
-                    soups={props.soups}
-                    mainDishes={props.mainDishes}
-                    desserts={props.desserts}
-                    orderLines={props.orderLines}
-                    dispatch={dispatch}
-                    drinks={props.drinks}/>}
-                {props.summaryStatus && <OrderSummary order={props.orderLines} error={props.error}/>}
+                {
+                    props.isShownMainPage && !props.summaryStatus && 
+                    <MainPageContent
+                        orderLines={props.orderLines}
+                        dispatch={dispatch}
+                        meals={props.meals}
+                        error={props.error}
+                    />
+                }
+                {
+                    props.isShownMenu && !props.summaryStatus && 
+                    <MenuContent
+                        meals={props.meals}
+                        soups={props.soups}
+                        mainDishes={props.mainDishes}
+                        desserts={props.desserts}
+                        orderLines={props.orderLines}
+                        dispatch={dispatch}
+                        drinks={props.drinks}
+                    />
+                }
+                {
+                    props.summaryStatus && 
+                    <OrderSummary 
+                        order={props.orderLines} 
+                        error={props.error}
+                    />
+                }
                 {/* <MainPageButtons /> */}
             </div>
         </>

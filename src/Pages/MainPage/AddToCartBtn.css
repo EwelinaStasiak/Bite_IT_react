@@ -1,11 +1,10 @@
 .add-to-cart-btn {
-    display: flow;
-    right:  0;
-    margin: 0 3vw 0 0;
-    padding: 0;
-    min-width: 2vw;
-    max-width: 2.5vw;
-    max-height: 2.5vw;
+    /*display: flow;*/
+    /*right:  0;*/
+    /*margin: 0 3vw 0 0;*/
+    /*padding: 0;*/
+    width: 3vh;
+    height: 3vh;
     background-color: white;
     /*background: none;*/
     border: 0;
@@ -23,4 +22,11 @@
 .add-to-cart-btn img {
     width: 100%;
     height: auto;
+}
+
+@media only screen and (orientation: portrait) {
+    .add-to-cart-btn {
+        width: 3vw;
+        height: 3vw;
+    }
 }

@@ -50,7 +50,7 @@ const App = () => {
   }
   console.log(isShownMenu);
   return (
-      <div>
+      <div className="layout-container">
         <SiteNavbar 
             onShowMenu={showMenu} 
             onShowMainPage={showMainPage} 
@@ -68,7 +68,7 @@ const App = () => {
             summaryStatus={showSummary}
             handleSummary={summaryHandler}
         />
-        <Footer/>
+        {/*<Footer/>*/}
       </div>
   );
 }

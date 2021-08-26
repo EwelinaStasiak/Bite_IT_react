@@ -12,19 +12,11 @@ function Meal ({dispatch, ...props}) {
     }
 
     return (
-        <li className="meals-list" key={props.meal.id}>
+        <li className="meal-details" key={props.meal.id}>
             <div className="meal-name">
                 <span onClick={toggleShowStatus}>{props.meal.name}</span>
-                {/*<span className="down-arrow">*/}
-                {/*   {listIsShown ? ' 🔼' : ' 🔽'}*/}
-                {/*</span>*/}
-{/*<<<<<<< HEAD*/}
                 <CartBtn orderLines={props.orderLines} mealId={props.meal.id} dispatch={dispatch}/>
-{/*=======*/}
-{/*                <AddToCartBtn orderLines={props.orderLines} mealId={props.meal.id} dispatch={dispatch}/>*/}
-{/*>>>>>>> development*/}
             </div>
-            {/*<br/>*/}
             {listIsShown && <IngredientsList meal={props.meal}/>}
         </li>
     );

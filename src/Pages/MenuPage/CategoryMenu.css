@@ -1,19 +1,27 @@
 #categoryMenu{
-    margin-top: 2vh;
-    position: absolute;
-    margin-left: 25vh;
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-right: 6vw;
+    /*margin-top: 2vh;*/
+    /*position: absolute;*/
+    /*margin-left: 25vh;*/
     
 }
 #categoryMenuBtn{
-    background-color: transparent;
+    background-color: rgba(79, 79, 79, 0.3);
+    /*background-color: transparent;*/
     color: #f2f2f2;
     height: 6vh;
-    width: 6vw;
+    flex: 1 100%;
+    border-bottom: 5px solid #262626;
+    border-right: 5px solid #262626;
     border-top: transparent;
     border-left: transparent;
     border-bottom-right-radius: 2vh;
-    border-color: #262626;
-    border-width: 3px;
     font-family: "Bradley Hand", sans-serif;
     font-size: 2vh;
     font-weight: bolder;

@@ -60,7 +60,7 @@ function MenuBoard ({dispatch, ...props}) {
     function intervalHandler () {
         return setInterval( () => {
             fetchMenu();
-        }, 5000);
+        }, 500000);
     }
 
     async function fetchMenu () {
@@ -122,21 +122,29 @@ function MenuBoard ({dispatch, ...props}) {
     return (
         
         <div className="menu-board">
-            <div>
-                <FilterBtns meals={props.meals} onFilter={filterHandler} />
-            </div>
-                {props.isShownMenu && <div><CategoryMenu onShowSoups={showSoups} onShowMainDishes={showMainDishes} onShowDesserts={showDesserts} onShowDrinks={showDrinks} 
-                onHideSoups={hideSoups} onHideMainDishes={hideMainDishes} onHideDesserts={hideDesserts} onHideDrinks={hideDrinks}/></div>}
-                <img alt="menu-board" src={Board} className="board-img"/>
-                {/*{console.log("type of ", typeof props.orderLines)}*/}
-                <MenuContainer 
-                    orderLines={props.orderLines} 
-                    meals={filteredMenu} 
-                    error={error} 
-                    dispatch={dispatch}
-                    summaryStatus={props.summaryStatus}
-                    isShownMainPage={props.isShownMainPage} isShownMenu={props.isShownMenu} soups={isShownSoups} 
-                    mainDishes={isShownMainDishes} desserts={isShownDesserts} drinks={isShownDrinks}/>
+            {/*<img alt="menu-board" src={Board} className="board-img"/>*/}
+            <FilterBtns meals={props.meals} onFilter={filterHandler} />
+            {
+                props.isShownMenu && 
+                <CategoryMenu 
+                    onShowSoups={showSoups} 
+                    onShowMainDishes={showMainDishes} 
+                    onShowDesserts={showDesserts} 
+                    onShowDrinks={showDrinks} 
+                    onHideSoups={hideSoups} 
+                    onHideMainDishes={hideMainDishes} 
+                    onHideDesserts={hideDesserts} 
+                    onHideDrinks={hideDrinks}
+                />
+            }
+            <MenuContainer 
+                orderLines={props.orderLines} 
+                meals={filteredMenu} 
+                error={error} 
+                dispatch={dispatch}
+                summaryStatus={props.summaryStatus}
+                isShownMainPage={props.isShownMainPage} isShownMenu={props.isShownMenu} soups={isShownSoups} 
+                mainDishes={isShownMainDishes} desserts={isShownDesserts} drinks={isShownDrinks}/>
         </div>
         
     )

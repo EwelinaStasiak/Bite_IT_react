@@ -1,10 +1,12 @@
 import "./MenuContent.css";
+import "../MainPage/MainPageContent.css";
 import Meal from "../MainPage/Meal";
 
 function MenuContent({dispatch, ...props}){
     console.log(props.soups)
     return (
-        <div className="meals-list-container">
+        // <div className="meals-list-container">
+        <div className="board-content-container">
             <h1 className="title"><u>MENU</u></h1>
             <ul className="meals-list">
                 

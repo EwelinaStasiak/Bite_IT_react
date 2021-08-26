@@ -1,3 +1,17 @@
+.layout-container {
+  margin: 0;
+  /*margin: 0 auto;*/
+  /*height: 100vh;*/
+  /*width: 980px;*/
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  /*justify-content: space-between;*/
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 10vh 89vh;
+  justify-content: center;
+  /*justify-items: center;*/
+}
 
 .footer {
   margin: 0;
@@ -16,28 +30,28 @@
 
 
 
-@media screen and (max-width: 480px) {
-  #navbarItem {
-    margin-left: 1vw;
-    margin-right: 1vw;
-  }
-  #navbarContainer{
-    margin-top: 1vh;
-    height: fit-content;
-    margin-bottom: 1vh;
-  }
-  
-}
+/*@media screen and (max-width: 480px) {*/
+/*  #navbarItem {*/
+/*    margin-left: 1vw;*/
+/*    margin-right: 1vw;*/
+/*  }*/
+/*  #navbarContainer{*/
+/*    margin-top: 1vh;*/
+/*    height: fit-content;*/
+/*    margin-bottom: 1vh;*/
+/*  }*/
+/*  */
+/*}*/
 
-@media screen and (min-width: 480px) {
-  #navbarItem {
-    margin-left: 2vw;
-    margin-right:2vw;
-  }
-  #navbarContainer{
-    margin-top: 2vh;
-    height: fit-content;
-    margin-bottom: 1vh;
-  }
-}
+/*@media screen and (min-width: 480px) {*/
+/*  #navbarItem {*/
+/*    margin-left: 2vw;*/
+/*    margin-right:2vw;*/
+/*  }*/
+/*  #navbarContainer{*/
+/*    margin-top: 2vh;*/
+/*    height: fit-content;*/
+/*    margin-bottom: 1vh;*/
+/*  }*/
+/*}*/
 
