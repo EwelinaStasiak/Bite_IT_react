@@ -12,7 +12,7 @@ function AddToCartBtn({dispatch, ...props}) {
         return dateTime;
     }
 
-    async function postData(orderId, mealId){
+    async function postAddMealToOrderLine(orderId, mealId){
       const result = await fetch('https://localhost:5001/OrderLine',{
           method: 'post',
           headers:{
@@ -38,42 +38,31 @@ function AddToCartBtn({dispatch, ...props}) {
                 "restaurantId": 1,
                 "creationDate": todaysDate()
             })
-        }) 
-        .then(response=>response.json())
-        .then(data=>{console.log(data.id)});   
+        });
+        const json = await result.json();
+        return json.id;
       };
-    
-    const randomNumber = Math.floor(Math.random()*500)+1;
-    
 
     function showConfirmAddToOrder()
     {
         alert("Dodałeś " + props.mealId +" do zamówienia");
     }
 
-    function createOrderInState()
+    function addToState(orderId,mealId)
     {
-        postCreateOrder();//?????
-        dispatch({type:"createOrderId", item : randomNumber})
+        dispatch({type:"addMealToOrder", orderId: orderId, mealId: mealId})
     }
 
-    function addToState(OrderId,mealId)
-    {
-        dispatch({type:"addMealToOrder", item: mealId})
-    }
-
-    function clickHandler(){
-        if (props.state.orderId.length === 0)
-        {
-            createOrderInState(randomNumber);
-        }       
-            addMealToOrder();
+    async function clickHandler(){
+        const orderId = props.state.orderId || await postCreateOrder();
+        console.log("first" + orderId)
+        addMealToOrder(orderId);
     }
     
-    function addMealToOrder()
+    async function addMealToOrder(orderId)
     {      
-        addToState(props.state.orderId, props.mealId);
-        postData(randomNumber, props.mealId);
+        await postAddMealToOrderLine(orderId, props.mealId);
+        addToState(orderId, props.mealId);
         showConfirmAddToOrder();      
     }
 

@@ -12,20 +12,18 @@ const App = () => {
 
   const [state, dispatch] = useReducer((old, action) => {
     switch(action.type) {
-        case "addToOrder":
-            return {...old, orderLines:action.item };
         case "removeFromOrder":
             return old.filter(i => i !== action.item);
         case "createOrderId" :
-          return{...old, orderId:action.item};
+          return{...old, orderId: action.item};
         case "addMealToOrder":
-          return{...old, orderLines:[...old.orderLines, action.item] };      
+          return{...old, orderId: action.orderId, orderLines:[...old.orderLines, [action.orderId, action.mealId]] };      
     }        
     
 }, {orderLines: [], orderId:''});
   
-  console.log("Aktualna zawartość zamówienia: ", state.orderLines);
-  console.log("Aktualny numer zamówienia: ", state.orderId);
+  console.log("Aktualna zawartość zamówienia w state: ", state.orderLines);
+  console.log("Aktualny numer zamówienia w state: ", state.orderId);
   
   function updateMenu (newMenu){
       setMenu(newMenu);
