@@ -2,7 +2,7 @@ import "./AddToCartBtn.css";
 import cartImage from "../../../src/img/add-to-cart-icon-23.jpeg";
 
 function AddToCartBtn({dispatch, ...props}) {
-
+    
     function todaysDate()
     {
         var today = new Date();

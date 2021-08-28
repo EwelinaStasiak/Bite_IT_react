@@ -120,12 +120,11 @@ function MenuBoard ({dispatch, ...props}) {
         setFilteredMenu(filtered);
     }
 
-    console.log("menu board : ", props.cart)
+    // console.log("menu board : ", props.cart)
 
     return (
         
         <div className="menu-board">
-            {/*<img alt="menu-board" src={Board} className="board-img"/>*/}
             <FilterBtns meals={props.meals} onFilter={filterHandler} />
             {
                 props.isShownMenu && 

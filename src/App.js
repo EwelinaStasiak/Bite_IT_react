@@ -33,8 +33,8 @@ const App = () => {
   }
   
   function summaryHandler (isVisible, cartData) {
-      setShowSummary(isVisible);
       setCart(cartData)
+      setShowSummary(isVisible);
   }
 
   function showMenu(){
@@ -55,9 +55,9 @@ const App = () => {
     setIsShownMainPage(false);
   }
   
-  // console.log(isShownMenu);
   console.log("app.js : ", cart)  
   
+    
   return (
       <div className="layout-container">
         <SiteNavbar 

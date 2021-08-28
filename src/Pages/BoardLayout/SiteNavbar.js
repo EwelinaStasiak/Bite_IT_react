@@ -19,13 +19,11 @@ const SiteNavbar = (props) => {
     
     function showSummary() {
         if (props.orderId) {
+            console.log("showSummery ify: ", props.orderId)
             getData(props.orderId);
         } else {
             props.handleSummary(true, {});
         }
-        
-        // const order = props.orderId ? getData(props.orderId) : {};
-        // props.handleSummary(true, order);
     }
     
     function onClickMainPageHandler(){
@@ -37,8 +35,8 @@ const SiteNavbar = (props) => {
         try {
             const response = await fetch(`https://localhost:5001/OrderLine/${orderId}`);
             const data = await response.json();
+            console.log("fetch result: ", data)
             props.handleSummary(true, data);
-            // dispatch({ type: "addToOrder", item: data });
         } catch (error) {
         }
     }

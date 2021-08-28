@@ -14,8 +14,6 @@ function OrderSummary(props) {
         setChecked(!checked);
     }
     
-    console.log("order summery: ", props.order)
-    
     return(
         <div className="board-content-container scrollable">
             <h1 className="summery-title"><u>Podsumowanie:</u></h1>
