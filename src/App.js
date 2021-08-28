@@ -10,6 +10,7 @@ const App = () => {
   const [showSummary, setShowSummary] = useState(false);
   const [isShownMenu, setIsShownMenu] = useState(false);
   const [isShownMainPage, setIsShownMainPage] = useState(true);
+  const [cart, setCart] = useState();
   
   const [state, dispatch] = useReducer((old, action) => {
     switch(action.type) {
@@ -28,8 +29,9 @@ const App = () => {
       console.log('menu updated');
   }
   
-  function summaryHandler (value) {
-      setShowSummary(value);
+  function summaryHandler (isVisible, cartData) {
+      setShowSummary(isVisible);
+      setCart(cartData)
   }
 
   function showMenu(){
@@ -58,6 +60,7 @@ const App = () => {
             onHideMainPage={hideMainPage} 
             onHideMenu={hideMenu}
             handleSummary={summaryHandler}
+            orderId={state.orderLines.orderId}
         />
         <MenuBoard
             meals={menu.meals} 

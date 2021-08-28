@@ -17,11 +17,21 @@ const SiteNavbar = (props) => {
     }
 
     function showSummary() {
-        props.handleSummary(true);
+        const order = props.orderId ? getData(props.orderId) : {};
+        props.handleSummary(true, order);
     }
     function onClickMainPageHandler(){
         props.onHideMenu();
         props.onShowMainPage();
+    }
+
+    async function getData (orderId) {
+        try {
+            const response = await fetch(`https://localhost:5001/OrderLine/${orderId}`);
+            const data = await response.json();
+            dispatch({ type: "addToOrder", item: data });
+        } catch (error) {
+        }
     }
 
     return (
