@@ -1,11 +1,18 @@
 import "./AddToCartBtn.css";
 import cartImage from "../../../src/img/add-to-cart-icon-23.jpeg";
-// import cartImage from "../../../src/img/white-shopping-cart-icon-png-19.jpeg";
-
 
 function AddToCartBtn({dispatch, ...props}) {
 
-    async function postData(orderId, mealId){
+    function todaysDate()
+    {
+        var today = new Date();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = date+' '+time;
+        return dateTime;
+    }
+
+    async function postAddMealToOrderLine(orderId, mealId){
       const result = await fetch('https://localhost:5001/OrderLine',{
           method: 'post',
           headers:{
@@ -17,32 +24,47 @@ function AddToCartBtn({dispatch, ...props}) {
                 "mealId": mealId
           })
       })  
-      console.log(result)
     };
 
-    async function getData () {
-        try {
-            //dispatch({ type: "startLoading" })
-            const response = await fetch('https://localhost:5001/OrderLine/2');
-            //throwErrorMessage(response);
-            const data = await response.json();
-            //const orderLinesApi = JSON.stringify(data);
-            dispatch({ type: "addToOrder", item: data });          
-        } catch (error) {           
-        }
+    async function postCreateOrder(){
+        const result = await fetch('https://localhost:5001/Order',{
+            method: 'post',
+            headers:{
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                "tableNumber": 1,
+                "restaurantId": 1,
+                "creationDate": todaysDate()
+            })
+        });
+        const json = await result.json();
+        return json.id;
+      };
+
+    function showConfirmAddToOrder()
+    {
+        alert("Dodałeś " + props.mealId +" do zamówienia");
+    }
+    
+    function addToState(orderId,mealId)
+    {
+        dispatch({type:"addMealToOrder", orderId: orderId, mealId: mealId})
     }
 
-    const clickHandler = () => {
-        postData(2,props.mealId); 
-        getData();
-        // if(JSON.stringify(props.orderLines[0].meal.name)!=''){
-        //     console.log('props:' + JSON.stringify(props.orderLines[0].meal));  
-        // }
-        // else{
-        //     console.log("not yet")
-        // }
-        
-    };
+    async function clickHandler(){
+        const orderId = props.state.orderId || await postCreateOrder();
+        console.log("first" + orderId)
+        addMealToOrder(orderId);
+    }
+    
+    async function addMealToOrder(orderId)
+    {      
+        await postAddMealToOrderLine(orderId, props.mealId);
+        addToState(orderId, props.mealId);
+        showConfirmAddToOrder();      
+    }
 
     return(
         <button onClick={clickHandler} className="add-to-cart-btn" >

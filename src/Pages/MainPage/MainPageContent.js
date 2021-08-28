@@ -12,7 +12,7 @@ function MainPageContent ({dispatch, ...props}) {
             
             <ul className="meals-list">
                 {!props.error && props.meals.map(meal => meal.promotionType === 0 ?
-                    <Meal orderLines={props.orderLines} key={meal.id} meal={meal} dispatch={dispatch}/> :
+                    <Meal state={props.state} key={meal.id} meal={meal} dispatch={dispatch}/> :
                     null)
                 }
             </ul>

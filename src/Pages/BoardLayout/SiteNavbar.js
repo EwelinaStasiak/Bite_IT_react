@@ -15,11 +15,19 @@ const SiteNavbar = (props) => {
         props.onHideMainPage();
         props.handleSummary(false);
     }
-
+    
+    
     function showSummary() {
-        const order = props.orderId ? getData(props.orderId) : {};
-        props.handleSummary(true, order);
+        if (props.orderId) {
+            getData(props.orderId);
+        } else {
+            props.handleSummary(true, {});
+        }
+        
+        // const order = props.orderId ? getData(props.orderId) : {};
+        // props.handleSummary(true, order);
     }
+    
     function onClickMainPageHandler(){
         props.onHideMenu();
         props.onShowMainPage();
@@ -29,7 +37,8 @@ const SiteNavbar = (props) => {
         try {
             const response = await fetch(`https://localhost:5001/OrderLine/${orderId}`);
             const data = await response.json();
-            dispatch({ type: "addToOrder", item: data });
+            props.handleSummary(true, data);
+            // dispatch({ type: "addToOrder", item: data });
         } catch (error) {
         }
     }

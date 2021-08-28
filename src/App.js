@@ -10,19 +10,22 @@ const App = () => {
   const [showSummary, setShowSummary] = useState(false);
   const [isShownMenu, setIsShownMenu] = useState(false);
   const [isShownMainPage, setIsShownMainPage] = useState(true);
-  const [cart, setCart] = useState();
+  const [cart, setCart] = useState([]);
   
   const [state, dispatch] = useReducer((old, action) => {
     switch(action.type) {
-        case "addToOrder":
-            return {...old, orderLines:action.item };
         case "removeFromOrder":
             return old.filter(i => i !== action.item);
+        case "createOrderId" :
+          return{...old, orderId: action.item};
+        case "addMealToOrder":
+          return{...old, orderId: action.orderId, orderLines:[...old.orderLines, [action.orderId, action.mealId]] };      
     }        
-    return old;
-}, {orderLines: []});
+    
+}, {orderLines: [], orderId:''});
   
-  console.log("order line: ", state.orderLines);
+  console.log("Aktualna zawartość zamówienia w state: ", state.orderLines);
+  console.log("Aktualny numer zamówienia w state: ", state.orderId);
   
   function updateMenu (newMenu){
       setMenu(newMenu);
@@ -51,7 +54,10 @@ const App = () => {
   function hideMainPage(){
     setIsShownMainPage(false);
   }
-  console.log(isShownMenu);
+  
+  // console.log(isShownMenu);
+  console.log("app.js : ", cart)  
+  
   return (
       <div className="layout-container">
         <SiteNavbar 
@@ -60,17 +66,18 @@ const App = () => {
             onHideMainPage={hideMainPage} 
             onHideMenu={hideMenu}
             handleSummary={summaryHandler}
-            orderId={state.orderLines.orderId}
+            orderId={state.orderId}
         />
         <MenuBoard
             meals={menu.meals} 
-            orderLines={state.orderLines} 
+            state={state} 
             dispatch={dispatch} 
             onMenuUpdate={updateMenu} 
             isShownMenu={isShownMenu} 
             isShownMainPage={isShownMainPage}
             summaryStatus={showSummary}
             handleSummary={summaryHandler}
+            cart={cart}
         />
       </div>
   );

@@ -52,14 +52,17 @@ const testOrder = {
 }
 
 function MenuContainer({dispatch, ...props}) {
-    
+
+    console.log("menu container : ", props.cart)
+
     return (
         <>
             <div className="content-container content-container-width">
                 {
                     props.isShownMainPage && !props.summaryStatus && 
                     <MainPageContent
-                        orderLines={props.orderLines}
+                        // orderLines={props.orderLines}
+                        state={props.state}
                         dispatch={dispatch}
                         meals={props.meals}
                         error={props.error}
@@ -72,7 +75,8 @@ function MenuContainer({dispatch, ...props}) {
                         soups={props.soups}
                         mainDishes={props.mainDishes}
                         desserts={props.desserts}
-                        orderLines={props.orderLines}
+                        // orderLines={props.orderLines}
+                        state={props.state}
                         dispatch={dispatch}
                         drinks={props.drinks}
                     />
@@ -80,7 +84,8 @@ function MenuContainer({dispatch, ...props}) {
                 {
                     props.summaryStatus && 
                     <OrderSummary 
-                        order={props.orderLines} 
+                        // order={props.orderLines} 
+                        order={props.cart}
                         error={props.error}
                     />
                 }

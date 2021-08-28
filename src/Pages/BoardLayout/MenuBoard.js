@@ -119,7 +119,9 @@ function MenuBoard ({dispatch, ...props}) {
     function filterHandler(filtered) {
         setFilteredMenu(filtered);
     }
-    
+
+    console.log("menu board : ", props.cart)
+
     return (
         
         <div className="menu-board">
@@ -139,7 +141,9 @@ function MenuBoard ({dispatch, ...props}) {
                 />
             }
             <MenuContainer 
-                orderLines={props.orderLines} 
+                // orderLines={props.orderLines}
+                state={props.state}
+                cart={props.cart}
                 meals={filteredMenu} 
                 error={error} 
                 dispatch={dispatch}
