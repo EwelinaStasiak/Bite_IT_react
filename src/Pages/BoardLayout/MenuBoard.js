@@ -124,7 +124,15 @@ function MenuBoard ({dispatch, ...props}) {
         
         <div className="menu-board">
             {/*<img alt="menu-board" src={Board} className="board-img"/>*/}
-            <FilterBtns meals={props.meals} onFilter={filterHandler} />
+            {
+                props.isShownMenu &&
+                <FilterBtns meals={props.meals} onFilter={filterHandler} />
+            }
+            {
+                props.isShownMainPage &&
+                <FilterBtns meals={props.meals} onFilter={filterHandler} />
+            }
+            
             {
                 props.isShownMenu && 
                 <CategoryMenu 
