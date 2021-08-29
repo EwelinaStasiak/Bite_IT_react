@@ -32,31 +32,20 @@ const App = () => {
       setShowSummary(value);
   }
 
-  function showMenu(){
-
-    setIsShownMenu(true);
-    
+  function menuHandler(value){
+    setIsShownMenu(value);
   }
 
-  function hideMenu(){
-    setIsShownMenu(false);
+  function mainPageHandler(value){
+    setIsShownMainPage(value);
   }
 
-  function showMainPage(){
-    setIsShownMainPage(true);
-  }
-
-  function hideMainPage(){
-    setIsShownMainPage(false);
-  }
-  console.log(isShownMenu);
+  
   return (
       <div className="layout-container">
         <SiteNavbar 
-            onShowMenu={showMenu} 
-            onShowMainPage={showMainPage} 
-            onHideMainPage={hideMainPage} 
-            onHideMenu={hideMenu}
+            handleMenu={menuHandler} 
+            handleMainPage={mainPageHandler} 
             handleSummary={summaryHandler}
         />
         <MenuBoard
