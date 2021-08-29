@@ -21,7 +21,7 @@ function OrderSummary(props) {
             {(!props.error && props.order.length > 0) ?
                 (<div className="ordered-meals-list-container">
                     <h2 id="order-id">Zamówienie nr <strong>{props.order[0].orderId}</strong></h2>
-                    <OrderedMeals meals={props.order} />
+                    <OrderedMeals meals={props.order} orderId={props.order[0].orderId} />
                     <OrderSum meals={props.order} />
                     <PayCheckbox onCheck={checkHandler} />
                     <SummaryBtns />

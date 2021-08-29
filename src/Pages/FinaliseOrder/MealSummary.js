@@ -2,6 +2,7 @@ import MealPrice from "./MealPrice";
 import "./MealSummary.css";
 import deleteIcon from "../../img/pobrane.png";
 import {useState} from "react";
+import RemoveFromCartBtn from "./RemoveFromCartBtn";
 
 function MealSummary(props) {
     return(
@@ -13,7 +14,7 @@ function MealSummary(props) {
                         <p className="lit-on-hover">+</p>
                         <div className="meal-edition">
                             <p>x{props.count}</p>
-                            <img src={deleteIcon} alt="delete-icon" />
+                                <RemoveFromCartBtn mealId={props.meal.id} orderId ={props.orderId}/>
                         </div>
                         <p className="lit-on-hover">-</p>
                     </div>
