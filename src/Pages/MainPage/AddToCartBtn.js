@@ -1,8 +1,10 @@
 import "./AddToCartBtn.css";
 import cartImage from "../../../src/img/add-to-cart-icon-23.jpeg";
 
+
+
 function AddToCartBtn({dispatch, ...props}) {
-    
+
     function todaysDate()
     {
         var today = new Date();
@@ -46,6 +48,7 @@ function AddToCartBtn({dispatch, ...props}) {
     function showConfirmAddToOrder()
     {
         alert("Dodałeś " + props.mealId +" do zamówienia");
+        
     }
     
     function addToState(orderId,mealId)
@@ -55,15 +58,16 @@ function AddToCartBtn({dispatch, ...props}) {
 
     async function clickHandler(){
         const orderId = props.state.orderId || await postCreateOrder();
-        console.log("first" + orderId)
+        //console.log("first" + orderId)
         addMealToOrder(orderId);
+        
     }
     
     async function addMealToOrder(orderId)
     {      
         await postAddMealToOrderLine(orderId, props.mealId);
         addToState(orderId, props.mealId);
-        showConfirmAddToOrder();      
+        //showConfirmAddToOrder();      
     }
 
     return(

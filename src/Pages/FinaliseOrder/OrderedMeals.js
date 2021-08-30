@@ -2,7 +2,7 @@ import '../MainPage/MainPageContent.css';
 import "./OrderedMeals.css";
 import MealSummary from "./MealSummary";
 
-function OrderedMeals (props) {
+function OrderedMeals ({setOrder, ...props}) {
     let mealsCount = 0;
     const mealsToDisplay = [];
     
@@ -15,6 +15,7 @@ function OrderedMeals (props) {
         if (!mealsToDisplay.includes(mealName)) {
             mealsToDisplay.push(mealName);
             countMeals(mealName);
+            console.log("szukana wartość " + props.meals[0].orderId);
             return true;
         }
         return false;
@@ -23,7 +24,16 @@ function OrderedMeals (props) {
     return(
         <ul className="ordered-meals-list">
             {props.meals.map(meal =>
-                displayMeal(meal.meal.name) && <MealSummary orderId={props.orderId} key={meal.meal.id} meal={meal.meal} count={mealsCount} />
+                displayMeal(meal.meal.name) && 
+                <MealSummary 
+                    orderId={props.orderId} 
+                    key={meal.meal.id} 
+                    meal={meal.meal} 
+                    count={mealsCount}
+                    order={props.meals}
+                    orderFromState={props.orderFromState}
+                    setOrder ={setOrder}
+                />
             )}
         </ul>
     )

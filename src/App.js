@@ -24,8 +24,6 @@ const App = () => {
     
 }, {orderLines: [], orderId:''});
   
-  console.log("Aktualna zawartość zamówienia w state: ", state.orderLines);
-  console.log("Aktualny numer zamówienia w state: ", state.orderId);
   
   function updateMenu (newMenu){
       setMenu(newMenu);
@@ -55,7 +53,7 @@ const App = () => {
     setIsShownMainPage(false);
   }
   
-  console.log("app.js : ", cart)  
+  //console.log("app.js : ", cart)  
   
     
   return (

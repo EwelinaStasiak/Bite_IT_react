@@ -9,7 +9,7 @@ import PayCheckbox from "./PayCheckbox";
 function OrderSummary(props) {
     // const tables = 15;
     const [checked, setChecked] = useState(false);
-
+    const [orderFromState, setOrder] = useState([]);
     function checkHandler() {
         setChecked(!checked);
     }
@@ -21,7 +21,7 @@ function OrderSummary(props) {
             {(!props.error && props.order.length > 0) ?
                 (<div className="ordered-meals-list-container">
                     <h2 id="order-id">Zamówienie nr <strong>{props.order[0].orderId}</strong></h2>
-                    <OrderedMeals meals={props.order} orderId={props.order[0].orderId} />
+                    <OrderedMeals meals={props.order} orderId={props.order[0].orderId} orderFromState={orderFromState} setOrder={setOrder}/>
                     <OrderSum meals={props.order} />
                     <PayCheckbox onCheck={checkHandler} />
                     <SummaryBtns />

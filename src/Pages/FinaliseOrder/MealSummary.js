@@ -4,7 +4,7 @@ import deleteIcon from "../../img/pobrane.png";
 import {useState} from "react";
 import RemoveFromCartBtn from "./RemoveFromCartBtn";
 
-function MealSummary(props) {
+function MealSummary({setOrder, ...props}) {
     return(
         <li className="meals-list no-li-mark" key={props.meal.id}>
             <div className="meal-name">
@@ -14,11 +14,18 @@ function MealSummary(props) {
                         <p className="lit-on-hover">+</p>
                         <div className="meal-edition">
                             <p>x{props.count}</p>
-                                <RemoveFromCartBtn mealId={props.meal.id} orderId ={props.orderId}/>
+                                <RemoveFromCartBtn 
+                                mealId={props.meal.id} 
+                                orderId ={props.orderId} 
+                                count={props.count} 
+                                orders={props.orders}
+                                orderFromState={props.orderFromState}
+                                setOrder = {setOrder}
+                                />
                         </div>
                         <p className="lit-on-hover">-</p>
                     </div>
-                    <MealPrice meal={props.meal} mealsCount={props.count}/>
+                    <MealPrice meal={props.meal} mealsCount={props.count}  />
                 </div>
             </div>
         </li>
