@@ -71,9 +71,9 @@ function AddToCartBtn({dispatch, ...props}) {
     }
 
     return(
-        <button onClick={clickHandler} className="add-to-cart-btn" >
-            <img src={cartImage} alt="cart-btn" />
-        </button>
+        // <button onClick={clickHandler}>
+            <img onClick={clickHandler} src={cartImage} alt="cart-btn" />
+        // </button>
     )
 }
 

@@ -19,7 +19,7 @@ function RemoveFromCartBtn({setOrder, ...props})
         console.log("zmiany " + props.order);
     }
     return(
-        <button onClick={clickHandler} className="add-to-cart-btn" >
+        <button onClick={clickHandler} className="del-from-cart-btn" >
             <img src={deleteIcon} alt="delete-icon"/>
         </button>
     )
