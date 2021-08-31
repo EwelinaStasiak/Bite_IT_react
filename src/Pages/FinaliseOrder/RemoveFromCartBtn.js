@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import deleteIcon from "../../img/pobrane.png";
 
-function RemoveFromCartBtn({setOrder, ...props})
+function RemoveFromCartBtn({RemoveMealFromList,decrementCounter, ...props})
 {
     async function removeMealFromOrder(mealId, orderId)
     {
@@ -13,10 +13,11 @@ function RemoveFromCartBtn({setOrder, ...props})
 
     async function clickHandler()
     {
-        alert("Chcesz usunąć " + props.mealId + " z zamówienia  " + props.orderId);
+        //alert("Chcesz usunąć " + props.mealId + " z zamówienia  " + props.orderId);
         await removeMealFromOrder(props.mealId, props.orderId);
-        setOrder(order => [...order,'t']);
-        console.log("zmiany " + props.order);
+        decrementCounter();
+        console.log("danie do usunięcia" + props.mealId);
+        RemoveMealFromList(props.mealId);
     }
     return(
         <button onClick={clickHandler} className="add-to-cart-btn" >

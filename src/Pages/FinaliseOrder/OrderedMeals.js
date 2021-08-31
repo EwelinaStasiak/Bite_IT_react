@@ -1,11 +1,16 @@
 import '../MainPage/MainPageContent.css';
 import "./OrderedMeals.css";
 import MealSummary from "./MealSummary";
+import {useState} from "react";
 
-function OrderedMeals ({setOrder, ...props}) {
+function OrderedMeals ({decrementCounter, ...props}) {
     let mealsCount = 0;
     const mealsToDisplay = [];
     
+    const [mealsToList,setMealsToList] = useState(props.meals);
+    const RemoveMealFromList = MealToRemove => setMealsToList(mealsToList.filter(i => i.mealId !== MealToRemove));
+    
+
     function countMeals(mealName) {
         mealsCount = 0;
         props.meals.map(meal => meal.meal.name === mealName && mealsCount++);
@@ -15,7 +20,6 @@ function OrderedMeals ({setOrder, ...props}) {
         if (!mealsToDisplay.includes(mealName)) {
             mealsToDisplay.push(mealName);
             countMeals(mealName);
-            console.log("szukana wartość " + props.meals[0].orderId);
             return true;
         }
         return false;
@@ -23,16 +27,18 @@ function OrderedMeals ({setOrder, ...props}) {
     
     return(
         <ul className="ordered-meals-list">
-            {props.meals.map(meal =>
+            {mealsToList.map(meal =>
                 displayMeal(meal.meal.name) && 
                 <MealSummary 
                     orderId={props.orderId} 
                     key={meal.meal.id} 
                     meal={meal.meal} 
                     count={mealsCount}
-                    order={props.meals}
+                    order={mealsToList}
                     orderFromState={props.orderFromState}
-                    setOrder ={setOrder}
+                    decrementCounter ={decrementCounter}
+                    counter = {props.counter}
+                    RemoveMealFromList = {RemoveMealFromList}
                 />
             )}
         </ul>

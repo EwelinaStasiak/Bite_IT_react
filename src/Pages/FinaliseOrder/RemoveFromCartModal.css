@@ -1,0 +1,12 @@
+.modal-content {
+    position: fixed;
+    top: 25%;
+    left: 25%;
+    width:40%;
+    height: 20%;
+    background: rgb(177, 154, 154);
+    font-size: x-large;
+    text-align-last: center;
+    color: white;
+    
+  }

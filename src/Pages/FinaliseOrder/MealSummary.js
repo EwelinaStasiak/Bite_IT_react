@@ -3,32 +3,46 @@ import "./MealSummary.css";
 import deleteIcon from "../../img/pobrane.png";
 import {useState} from "react";
 import RemoveFromCartBtn from "./RemoveFromCartBtn";
+import RemoveFromCartModal from "./RemoveFromCartModal";
 
-function MealSummary({setOrder, ...props}) {
+function MealSummary({RemoveMealFromList,decrementCounter, ...props}) {
+    const [show, setShow] = useState(false);
+    
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+
     return(
-        <li className="meals-list no-li-mark" key={props.meal.id}>
-            <div className="meal-name">
-                <p>{props.meal.name}</p>
-                <div className="meal-price-display">
-                    <div className="meal-count">
-                        <p className="lit-on-hover">+</p>
-                        <div className="meal-edition">
-                            <p>x{props.count}</p>
-                                <RemoveFromCartBtn 
-                                mealId={props.meal.id} 
-                                orderId ={props.orderId} 
-                                count={props.count} 
-                                orders={props.orders}
-                                orderFromState={props.orderFromState}
-                                setOrder = {setOrder}
-                                />
+        <div>
+            <RemoveFromCartModal show={show} meal={props.meal.name} onHide={handleClose}/>
+            <li className="meals-list no-li-mark" key={props.meal.id}>
+                <div className="meal-name">
+                    <p>{props.meal.name}</p>
+                    <div className="meal-price-display">
+                        <div className="meal-count">
+                            <p className="lit-on-hover">+</p>
+                            <div className="meal-edition">
+                                <p>x{props.count}</p>
+                                    <button onClick={handleShow}>
+                                        <RemoveFromCartBtn 
+                                        mealId={props.meal.id} 
+                                        orderId ={props.orderId} 
+                                        count={props.count} 
+                                        orders={props.orders}
+                                        orderFromState={props.orderFromState}
+                                        decrementCounter = {decrementCounter}
+                                        counter={props.counter}
+                                        RemoveMealFromList = {RemoveMealFromList}
+                                        />
+                                    </button>
+                            </div>
+                            <p className="lit-on-hover">-</p>
                         </div>
-                        <p className="lit-on-hover">-</p>
+                        <MealPrice meal={props.meal} mealsCount={props.count}  />
                     </div>
-                    <MealPrice meal={props.meal} mealsCount={props.count}  />
                 </div>
-            </div>
-        </li>
+            </li>
+        </div>
     )
 }
 
