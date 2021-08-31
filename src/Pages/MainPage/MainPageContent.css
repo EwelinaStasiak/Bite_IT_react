@@ -17,6 +17,36 @@
     text-transform: uppercase;
 }
 
+.add-to-cart-btn,
+.del-from-cart-btn {
+    width: 3vh;
+    min-width: 3vh;
+    max-width: 3vh;
+    height: 3vh;
+    min-height: 3vh;
+    max-height: 3vh;
+    border: 0;
+    border-radius: 10%;
+}
+
+.add-to-cart-btn {
+    background-color: white;
+}
+
+.del-from-cart-btn {
+    background: none;
+}
+
+.add-to-cart-btn:hover,
+.del-from-cart-btn:hover {
+    background-color: #ababab;
+}
+
+.add-to-cart-btn:active,
+.del-from-cart-btn:active {
+    background-color: #02baff;
+}
+
 /*.meals-list {*/
 /*    margin-bottom: 0.7em;*/
 /*    font-size: 2vh;*/
@@ -64,5 +94,10 @@
     .meals-list {
         font-size: 4vw;
         padding-left: 4vw;
+    }
+
+    .add-to-cart-btn {
+        width: 3vw;
+        height: 3vw;
     }
 }

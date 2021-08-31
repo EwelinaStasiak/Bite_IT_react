@@ -14,7 +14,7 @@ function AddToCartModal({onHide, ...props})
         </Modal.Header>
         <Modal.Body>Aby sfinalizować zamówienie przejdź do karty "Zamówienie"</Modal.Body>
         <Modal.Footer>
-          <button onClick={onHide}>
+          <button className="close-modal-btn" onClick={onHide}>
             Close
           </button>
         </Modal.Footer>

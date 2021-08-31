@@ -22,7 +22,7 @@ function Meal ({dispatch, ...props}) {
         <AddToCartModal show={show} meal={props.meal.name} onHide={handleClose}/>
             <div className="meal-name">
                 <span onClick={toggleShowStatus}>{props.meal.name}</span>
-                <button onClick={handleShow} >
+                <button onClick={handleShow} className="add-to-cart-btn" >
                     <CartBtn state={props.state} mealId={props.meal.id} dispatch={dispatch}/>
                 </button>
             </div>
