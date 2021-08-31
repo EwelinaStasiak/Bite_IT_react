@@ -15,7 +15,7 @@ function OrderSummary(props) {
     }
     
     return(
-        <div className="board-content-container scrollable">
+        <div className="board-content-container">
             <h1 className="summery-title"><u>Podsumowanie:</u></h1>
             {props.error && <p>{props.error}</p>}
             {(!props.error && props.order.length > 0) ?

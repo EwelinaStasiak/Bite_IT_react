@@ -6,7 +6,7 @@ import MenuContent from "../MenuPage/MenuContent";
 function MenuContainer({dispatch, ...props}) {
     return (
         <>
-            <div className="content-container content-container-width">
+            <div className="content-container scrollable content-container-width">
                 {
                     props.isShownMainPage && !props.summaryStatus && 
                     <MainPageContent
