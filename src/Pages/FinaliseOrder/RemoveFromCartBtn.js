@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import deleteIcon from "../../img/pobrane.png";
 
-function RemoveFromCartBtn({RemoveMealFromList,decrementCounter, ...props})
+function RemoveFromCartBtn({RemoveMealFromList, ...props})
 {
     async function removeMealFromOrder(mealId, orderId)
     {
@@ -15,8 +15,6 @@ function RemoveFromCartBtn({RemoveMealFromList,decrementCounter, ...props})
     {
         //alert("Chcesz usunąć " + props.mealId + " z zamówienia  " + props.orderId);
         await removeMealFromOrder(props.mealId, props.orderId);
-        decrementCounter();
-        console.log("danie do usunięcia" + props.mealId);
         RemoveMealFromList(props.mealId);
     }
     return(

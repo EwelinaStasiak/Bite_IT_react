@@ -5,7 +5,7 @@ import {useState} from "react";
 import RemoveFromCartBtn from "./RemoveFromCartBtn";
 import RemoveFromCartModal from "./RemoveFromCartModal";
 
-function MealSummary({RemoveMealFromList,decrementCounter, ...props}) {
+function MealSummary({RemoveMealFromList, ...props}) {
     const [show, setShow] = useState(false);
     
     const handleClose = () => setShow(false);
@@ -26,12 +26,7 @@ function MealSummary({RemoveMealFromList,decrementCounter, ...props}) {
                                     <button onClick={handleShow}>
                                         <RemoveFromCartBtn 
                                         mealId={props.meal.id} 
-                                        orderId ={props.orderId} 
-                                        count={props.count} 
-                                        orders={props.orders}
-                                        orderFromState={props.orderFromState}
-                                        decrementCounter = {decrementCounter}
-                                        counter={props.counter}
+                                        orderId ={props.orderId}  
                                         RemoveMealFromList = {RemoveMealFromList}
                                         />
                                     </button>

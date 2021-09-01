@@ -3,7 +3,7 @@ import "./OrderedMeals.css";
 import MealSummary from "./MealSummary";
 import {useState} from "react";
 
-function OrderedMeals ({decrementCounter, ...props}) {
+function OrderedMeals (props) {
     let mealsCount = 0;
     const mealsToDisplay = [];
     
@@ -35,9 +35,6 @@ function OrderedMeals ({decrementCounter, ...props}) {
                     meal={meal.meal} 
                     count={mealsCount}
                     order={mealsToList}
-                    orderFromState={props.orderFromState}
-                    decrementCounter ={decrementCounter}
-                    counter = {props.counter}
                     RemoveMealFromList = {RemoveMealFromList}
                 />
             )}
