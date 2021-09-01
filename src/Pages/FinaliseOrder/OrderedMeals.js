@@ -7,8 +7,7 @@ function OrderedMeals (props) {
     let mealsCount = 0;
     const mealsToDisplay = [];
     
-    const [mealsToList,setMealsToList] = useState(props.meals);
-    const RemoveMealFromList = MealToRemove => setMealsToList(mealsToList.filter(i => i.mealId !== MealToRemove));
+    
     
 
     function countMeals(mealName) {
@@ -27,15 +26,15 @@ function OrderedMeals (props) {
     
     return(
         <ul className="ordered-meals-list">
-            {mealsToList.map(meal =>
+            {props.meals.map(meal =>
                 displayMeal(meal.meal.name) && 
                 <MealSummary 
                     orderId={props.orderId} 
                     key={meal.meal.id} 
                     meal={meal.meal} 
                     count={mealsCount}
-                    order={mealsToList}
-                    RemoveMealFromList = {RemoveMealFromList}
+                    order={props.meals}
+                    RemoveMealFromList = {props.RemoveMealFromList}
                 />
             )}
         </ul>

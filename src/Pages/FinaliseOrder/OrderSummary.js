@@ -10,6 +10,9 @@ function OrderSummary(props) {
     // const tables = 15;
     const [checked, setChecked] = useState(false);
 
+    const [mealsToList,setMealsToList] = useState(props.order);
+    const RemoveMealFromList = MealToRemove => setMealsToList(mealsToList.filter(i => i.mealId !== MealToRemove));
+
     function checkHandler() {
         setChecked(!checked);
     }
@@ -23,8 +26,8 @@ function OrderSummary(props) {
             {(!props.error && props.order.length > 0) ?
                 (<div className="ordered-meals-list-container">
                     <h2 id="order-id">Zamówienie nr <strong>{props.order[0].orderId}</strong></h2>
-                    <OrderedMeals meals={props.order} orderId={props.order[0].orderId}/>
-                    <OrderSum meals={props.order} />
+                    <OrderedMeals meals={mealsToList} orderId={props.order[0].orderId} RemoveMealFromList = {RemoveMealFromList}/>
+                    <OrderSum meals={mealsToList} />
                     <PayCheckbox onCheck={checkHandler} />
                     <SummaryBtns />
                 </div>) :
