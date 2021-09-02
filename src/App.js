@@ -8,7 +8,7 @@ import BusinessUI from "./BusinessUI/BusinessUI";
 
 const App = () => {
   return (
-      <div>
+      <div className="page-container">
           <Route exact path={["/", "/menu"]} component={MenuUI} />
           <Route path={["/business", "/log-in", "worker"]} component={BusinessUI} />
       </div>
