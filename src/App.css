@@ -1,3 +1,6 @@
-.page-container {
-    position: fixed;
+@media only screen and (orientation: portrait) {
+    .page-container {
+        position: fixed;
+    }
 }
+
