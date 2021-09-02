@@ -18,9 +18,15 @@ const SiteNavbar = (props) => {
     
     
     function showSummary() {
+      if (props.orderId) {
+        console.log("showSummery ify: ", props.orderId)
+        getData(props.orderId);
+    } else {
         props.handleSummary(true);
         props.handleMainPage(false);
         props.handleMenu(false);
+    }
+
 
     }
     
