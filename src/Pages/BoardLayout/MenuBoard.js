@@ -125,9 +125,6 @@ function MenuBoard ({dispatch, ...props}) {
     return (
         
         <div className="menu-board">
-<<<<<<< HEAD
-            <FilterBtns meals={props.meals} onFilter={filterHandler} />
-=======
             {/*<img alt="menu-board" src={Board} className="board-img"/>*/}
             {
                 props.isShownMenu &&
@@ -138,7 +135,6 @@ function MenuBoard ({dispatch, ...props}) {
                 <FilterBtns meals={props.meals} onFilter={filterHandler} />
             }
             
->>>>>>> origin/small_changes
             {
                 props.isShownMenu && 
                 <CategoryMenu 

@@ -43,7 +43,6 @@ const App = () => {
     setIsShownMainPage(value);
   }
 
-<<<<<<< HEAD
   function hideMainPage(){
     setIsShownMainPage(false);
   }
@@ -51,9 +50,6 @@ const App = () => {
   //console.log("app.js : ", cart)  
   
     
-=======
-  
->>>>>>> origin/small_changes
   return (
       <div className="layout-container">
         <SiteNavbar 
