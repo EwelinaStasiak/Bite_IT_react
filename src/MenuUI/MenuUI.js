@@ -34,18 +34,12 @@ function MenuUI() {
         setShowSummary(isVisible);
     }
 
-    function showMenu(){
-
-        setIsShownMenu(true);
-
+    function menuHandler(value){
+        setIsShownMenu(value);
     }
 
-    function hideMenu(){
-        setIsShownMenu(false);
-    }
-
-    function showMainPage(){
-        setIsShownMainPage(true);
+    function mainPageHandler(value){
+        setIsShownMainPage(value);
     }
 
     function hideMainPage(){
@@ -53,14 +47,12 @@ function MenuUI() {
     }
 
     //console.log("app.js : ", cart)  
-    
+
     return (
         <div className="menu-layout-container">
             <SiteNavbar
-                onShowMenu={showMenu}
-                onShowMainPage={showMainPage}
-                onHideMainPage={hideMainPage}
-                onHideMenu={hideMenu}
+                handleMenu={menuHandler}
+                handleMainPage={mainPageHandler}
                 handleSummary={summaryHandler}
                 orderId={state.orderId}
             />
@@ -76,7 +68,7 @@ function MenuUI() {
                 cart={cart}
             />
         </div>
-    )
+    );
 }
 
 export default MenuUI;

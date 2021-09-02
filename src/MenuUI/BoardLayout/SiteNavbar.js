@@ -11,24 +11,29 @@ import Order from '../../img/order.png';
 const SiteNavbar = (props) => {
 
     function onClickMenuHandler(){
-        props.onShowMenu();
-        props.onHideMainPage();
+        props.handleMenu(true);
+        props.handleMainPage(false);
         props.handleSummary(false);
     }
     
     
     function showSummary() {
-        if (props.orderId) {
-            console.log("showSummery ify: ", props.orderId)
-            getData(props.orderId);
-        } else {
-            props.handleSummary(true, {});
-        }
+      if (props.orderId) {
+        console.log("showSummery ify: ", props.orderId)
+        getData(props.orderId);
+    } else {
+        props.handleSummary(true);
+        props.handleMainPage(false);
+        props.handleMenu(false);
+    }
+
+
     }
     
     function onClickMainPageHandler(){
-        props.onHideMenu();
-        props.onShowMainPage();
+      props.handleMainPage(true);
+      props.handleSummary(false);
+      props.handleMenu(false);
     }
 
     async function getData (orderId) {
