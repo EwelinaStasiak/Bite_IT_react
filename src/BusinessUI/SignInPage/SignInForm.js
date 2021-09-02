@@ -5,16 +5,13 @@ function SignInForm(props) {
     const usernameInputRef = useRef();
     const passwordInputRef = useRef();
 
-    function submitHandler(event) {
+    async function submitHandler(event) {
         event.preventDefault();
 
         const username = usernameInputRef.current.value;
         const pswrd = passwordInputRef.current.value;
 
-        console.log(username);
-        console.log(pswrd);
-
-        let userData = signUserIn(username, pswrd);
+        let userData = await signUserIn(username, pswrd);
         props.onLogIn(userData);
     }
 
@@ -30,11 +27,12 @@ function SignInForm(props) {
                 Password: password,
             })
         })
-        // console.log(data);
-        try {
-            return await response.json()
-        } catch (error) {
-            console.log(error)
+        
+        console.log(response.status === 200);
+        
+        if (response.status === 200) {
+            return await response.json();
+        } else {
             return null
         }
     }
@@ -51,6 +49,7 @@ function SignInForm(props) {
                     <input type="password" id="password" required ref={passwordInputRef} />
                 </div>
             </div>
+            {props.errorMessage && <p className="error-message">Incorrect login or password. Try again.</p>}
             <button type="submit" className="login-btn">Sign in</button>
         </form>
     )

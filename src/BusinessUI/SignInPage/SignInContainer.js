@@ -18,7 +18,7 @@ function SignInContainer(props) {
                 <img src={logo} alt="logo" />
             </div>
             <div className="sign-in-form-container">
-                <SignInForm onLogIn={logUserIn} />
+                <SignInForm onLogIn={logUserIn} errorMessage={props.errorMessage} />
             </div>
         </div>
     )

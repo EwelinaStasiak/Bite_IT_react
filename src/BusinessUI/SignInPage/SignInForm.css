@@ -15,7 +15,7 @@
 }
 
 .sign-in-form div:nth-child(2){
-    margin-bottom: 5vh;
+    margin-bottom: 2vh;
 }
 
 .label-input-cluster label {
@@ -31,5 +31,12 @@
     align-self: center;
     font-size: 1.3em;
     font-weight: bold;
+}
+
+.error-message {
+    color: red;
+    font-size: 1em;
+    text-align: center;
+    margin-bottom: 2vh;
 }
 
