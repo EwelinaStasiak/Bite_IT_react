@@ -30,7 +30,7 @@ function MenuUI() {
     }
 
     function summaryHandler (isVisible, cartData) {
-        setCart(cartData)
+        setCart(cartData ? cartData : [])
         setShowSummary(isVisible);
     }
 
@@ -46,7 +46,7 @@ function MenuUI() {
         setIsShownMainPage(false);
     }
 
-    //console.log("app.js : ", cart)  
+    console.log("app.js : ", cart)  
 
     return (
         <div className="menu-layout-container">
