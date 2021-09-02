@@ -1,0 +1,35 @@
+.sign-in-form {
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-start;
+    /*align-content: space-evenly;*/
+    
+    padding: 1vh 1vw 1vh 2vw;
+}
+
+.label-input-cluster {
+    display: flex;
+    flex-direction: column;
+
+    /*padding: 2vh 2vw;*/
+}
+
+.sign-in-form div:nth-child(2){
+    margin-bottom: 5vh;
+}
+
+.label-input-cluster label {
+    color: white;
+    font-size: 1.8em;
+    line-height: 2.5em;
+    font-weight: bold;
+}
+
+.sign-in-form button {
+    padding: 0.5vh 0.5vw;
+    width: 70%;
+    align-self: center;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
