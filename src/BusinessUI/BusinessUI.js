@@ -5,10 +5,9 @@ import {useReducer, useState} from "react";
 import "./BusinessUI.css";
 
 const logInAction = "logIn";
-const logOutStatus = {user: null};
+const logOutStatus = {user: null, error: null};
 
 function BusinessUI() {
-    const [showErrorMessage, setErrorMessage] = useState(false);
     const [logInStatus, setLogInState] = useReducer(logInHandler, logOutStatus, resetLogInStatus);
 
     function resetLogInStatus() {
@@ -17,9 +16,10 @@ function BusinessUI() {
 
     function logInHandler(logInState, action) {
         if (action.type === logInAction && action.user) {
-            return action.user;
+            return {user: action.user, error: null};
+        } else if (action.type === logInAction && !action.user) {
+            return {user: null, error: action.error}
         } else {
-            setErrorMessage(action.type === logInAction && !action.user);
             return resetLogInStatus();
         }
     }
@@ -34,7 +34,7 @@ function BusinessUI() {
 
     return (
         <div className={toggleBackground()}>
-            { logInStatus.user === null && <SignInContainer onLogIn={setLogInState} errorMessage={showErrorMessage} /> }
+            { logInStatus.user === null && <SignInContainer onLogIn={setLogInState} errorMessage={logInStatus.error} /> }
             { logInStatus.user !== null && <UILayout onLogOut={setLogInState} /> }
         </div>
         

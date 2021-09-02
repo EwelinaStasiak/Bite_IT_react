@@ -5,10 +5,11 @@ import * as url from "url";
 
 function SignInContainer(props) {
     
-    function logUserIn(userData){
+    function logUserIn(userData, errorMessage){
         props.onLogIn({
             type: "logIn",
-            user: userData
+            user: userData,
+            error: errorMessage
         });
     }
     

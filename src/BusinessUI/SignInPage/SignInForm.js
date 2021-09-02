@@ -4,15 +4,27 @@ import {useRef} from "react";
 function SignInForm(props) {
     const usernameInputRef = useRef();
     const passwordInputRef = useRef();
+    const invalidCredentials = "Incorrect login or password. Try again.";
+    const failedToFetch = "Server error. Try again later."
 
     async function submitHandler(event) {
         event.preventDefault();
 
         const username = usernameInputRef.current.value;
         const pswrd = passwordInputRef.current.value;
+        let userData = null;
+        let errorMessage = null;
 
-        let userData = await signUserIn(username, pswrd);
-        props.onLogIn(userData);
+        try {
+            userData = await signUserIn(username, pswrd);
+            if (userData === null)
+                errorMessage = invalidCredentials;
+        } catch (error) {
+            console.log(error);
+            errorMessage = failedToFetch;
+        }
+        
+        props.onLogIn(userData, errorMessage);
     }
 
     async function signUserIn(username, password) {
@@ -27,13 +39,11 @@ function SignInForm(props) {
                 Password: password,
             })
         })
-        
-        console.log(response.status === 200);
-        
-        if (response.status === 200) {
+
+        if (response.ok) {
             return await response.json();
         } else {
-            return null
+            return null;
         }
     }
     
@@ -49,7 +59,7 @@ function SignInForm(props) {
                     <input type="password" id="password" required ref={passwordInputRef} />
                 </div>
             </div>
-            {props.errorMessage && <p className="error-message">Incorrect login or password. Try again.</p>}
+            {props.errorMessage && <p className="error-message">{props.errorMessage}</p>}
             <button type="submit" className="login-btn">Sign in</button>
         </form>
     )
