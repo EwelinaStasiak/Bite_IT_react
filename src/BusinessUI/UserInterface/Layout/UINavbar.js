@@ -1,4 +1,6 @@
-function Homepage(props) {
+import "./UINavbar.css";
+
+function UINavbar(props) {
     function onClickHandler(){
         props.onLogOut({
             type: "logOut"
@@ -6,11 +8,10 @@ function Homepage(props) {
     }
     
     return (
-        <div>
-            <p>You're logged in</p>
+        <div className="ui-navbar-container">
             <button onClick={onClickHandler}>Log out</button>
         </div>
-    )
+    );
 }
 
-export default Homepage;
+export default UINavbar;

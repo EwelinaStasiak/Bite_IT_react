@@ -1,0 +1,19 @@
+.ui-navbar-container{
+    /*background-color: #ababab;*/
+    background-color: black;
+    padding: 0.5vh;
+}
+
+.ui-navbar-container button {
+    width: 100%;
+    padding: 0.5vh;
+    background-color: #282c34;
+    color: #f2f2f2;
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+.ui-navbar-container button:hover {
+    background-color: #568C04;
+    color: black;
+}
