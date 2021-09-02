@@ -35,20 +35,15 @@ const App = () => {
       setShowSummary(isVisible);
   }
 
-  function showMenu(){
-
-    setIsShownMenu(true);
-    
+  function menuHandler(value){
+    setIsShownMenu(value);
   }
 
-  function hideMenu(){
-    setIsShownMenu(false);
+  function mainPageHandler(value){
+    setIsShownMainPage(value);
   }
 
-  function showMainPage(){
-    setIsShownMainPage(true);
-  }
-
+<<<<<<< HEAD
   function hideMainPage(){
     setIsShownMainPage(false);
   }
@@ -56,13 +51,14 @@ const App = () => {
   //console.log("app.js : ", cart)  
   
     
+=======
+  
+>>>>>>> origin/small_changes
   return (
       <div className="layout-container">
         <SiteNavbar 
-            onShowMenu={showMenu} 
-            onShowMainPage={showMainPage} 
-            onHideMainPage={hideMainPage} 
-            onHideMenu={hideMenu}
+            handleMenu={menuHandler} 
+            handleMainPage={mainPageHandler} 
             handleSummary={summaryHandler}
             orderId={state.orderId}
         />
