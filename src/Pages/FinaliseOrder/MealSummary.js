@@ -14,7 +14,6 @@ function MealSummary({RemoveMealFromList, ...props}) {
 
     return(
         <div>
-            <RemoveFromCartModal show={show} meal={props.meal.name} onHide={handleClose}/>
             <li className="meals-list no-li-mark" key={props.meal.id}>
                 <div className="meal-name">
                     <p>{props.meal.name}</p>

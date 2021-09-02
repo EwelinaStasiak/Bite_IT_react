@@ -1,18 +1,21 @@
 import "./RemoveFromCartModal.css";
 import Modal from 'react-bootstrap/Modal';
 
-function RemoveFromCartModal({onHide, ...props})
+function RemoveFromCartModal(props)
 {
 
     return(
         <Modal class="modal-content" show={props.show} >
         <Modal.Header closeButton>
-          <Modal.Title>Usunąłeś {props.meal} z zamówienia</Modal.Title>
+          <Modal.Title>Czy chcesz usunąć {props.meal} z zamówienia</Modal.Title>
         </Modal.Header>
         <Modal.Body>....</Modal.Body>
         <Modal.Footer>
-          <button onClick={onHide}>
-            OK
+          <button onClick={props.removeMealFromOrder}>
+            Tak
+          </button>
+          <button onClick={props.handleClose}>
+            Nie
           </button>
         </Modal.Footer>
       </Modal>

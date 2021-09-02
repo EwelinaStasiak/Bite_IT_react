@@ -6,9 +6,6 @@ import {useState} from "react";
 function OrderedMeals (props) {
     let mealsCount = 0;
     const mealsToDisplay = [];
-    
-    
-    
 
     function countMeals(mealName) {
         mealsCount = 0;
