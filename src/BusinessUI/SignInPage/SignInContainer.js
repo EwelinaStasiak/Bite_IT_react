@@ -1,7 +1,6 @@
 import logo from "../../img/logo.png";
 import "./SignInContainer.css";
 import SignInForm from "./SignInForm";
-import * as url from "url";
 
 function SignInContainer(props) {
     
