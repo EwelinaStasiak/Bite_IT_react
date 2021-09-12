@@ -1,7 +1,6 @@
 import '../../App.css';
 import './SiteNavbar.css';
 import { Container, Navbar} from 'react-bootstrap';
-import React, { useState} from 'react';
 import Logo from '../../img/logo.png';
 import Waiter from '../../img/waiter.png';
 import Menu from '../../img/menu.png';
@@ -55,6 +54,7 @@ const SiteNavbar = (props) => {
                 src={Logo}
                 className="d-inline-block align-top nav-image"
                 id= "navbarItem"
+                alt="logo"
               ></img>
             </Navbar.Brand>
             <Navbar.Brand href="#">
@@ -62,6 +62,7 @@ const SiteNavbar = (props) => {
                 src={Waiter}
                 className="d-inline-block align-top nav-image"
                 id= "navbarItem"
+                alt="waiter"
               ></img>
             </Navbar.Brand>
             <Navbar.Brand onClick={onClickMenuHandler} href="#">
@@ -70,6 +71,7 @@ const SiteNavbar = (props) => {
                 className="d-inline-block align-top nav-image"
                 id= "navbarItem"
                 onClick={onClickMenuHandler}
+                alt="menu"
               ></img>
             </Navbar.Brand>
             <Navbar.Brand href="#">
@@ -78,6 +80,7 @@ const SiteNavbar = (props) => {
                 className="d-inline-block align-top nav-image"
                 id= "navbarItem"
                 onClick={showSummary}
+                alt="order"
               ></img>
             </Navbar.Brand>
           </Container>
