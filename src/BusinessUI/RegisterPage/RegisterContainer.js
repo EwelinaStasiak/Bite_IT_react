@@ -5,13 +5,13 @@ import * as url from "url";
 
 function RegisterContainer(props) {
     
-    function registerUser(userData, errorMessage){
-        props.onLogIn({
-            type: "register",
-            user: userData,
-            error: errorMessage
-        });
-    }
+    // function registerUser(userData, errorMessage){
+    //     props.onLogIn({
+    //         type: "register",
+    //         user: userData,
+    //         error: errorMessage
+    //     });
+    // }
     
     return(
         <div className="register-container">
@@ -19,7 +19,7 @@ function RegisterContainer(props) {
                 <img src={logo} alt="logo" />
             </div>
             <div className="register-form-container">
-                <RegisterForm onRegister={registerUser} errorMessage={props.errorMessage}/>
+                <RegisterForm/>
             </div>
         </div>
     )
