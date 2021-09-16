@@ -1,5 +1,5 @@
 export const cartActions = {
     add: "addMealToOrder",
-    response: "removeFromOrder",
+    remove: "removeFromOrder",
     create: "createOrderId"
 }
