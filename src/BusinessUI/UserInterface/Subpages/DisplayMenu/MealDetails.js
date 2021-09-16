@@ -2,8 +2,10 @@ import MealAdditionalInfo from "./MealAdditionalInfo";
 import {useState} from "react";
 import {useOrder} from "../../../OrderContext";
 import {cartActions} from "../../../../Utility/_cartActions";
+import EditOrderRow from "./EditOrderRow";
 
 const MealDetails = (props) => {
+    const meals = props.meals;
     const meal = props.meal;
     const [isShown, setShownStatus] = useState(false);
 
@@ -30,6 +32,14 @@ const MealDetails = (props) => {
                 <td className="table-meal-name">{meal.name}</td>
                 <td className="table-meal-price" rowSpan="4">{meal.price} <span>PLN</span></td>
                 <td className="table-add-btn" rowSpan="4"><button onClick={clickHandler}>Dodaj</button></td>
+            </tr>
+            <tr>
+                <EditOrderRow
+                    meal={meal}
+                    meals={meals}
+                    cart={props.cart}
+                    setCart={props.setCart}
+                />
             </tr>
             {isShown &&
                 <MealAdditionalInfo meal={meal}/>
