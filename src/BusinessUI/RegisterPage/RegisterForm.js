@@ -25,22 +25,24 @@ function RegisterForm(props) {
             userData = await registerNewUser(username, password, firstName, lastName, email, phoneNumber);
             if (userData === null)
                 errorMessage = failedAddNewUser;
-                console.log(errorMessage);
+                
         }
         catch (error){
             errorMessage = failedToFetch;
-            console.log(errorMessage);
+            
         }
         
         
     }
     const handleChange = e => {
-        setRole({ ...role, [e.target.name]: e.target.value });
-        console.log(parseInt(role.value, 10));
+        let roleFromForm = { ...role, [e.target.name]: e.target.value }
+        console.log(roleFromForm.value);
+        console.log(new Date(birthDate));
+    
         
       };
 
-    async function registerNewUser(username, password, firstName, lastName, email, phoneNumber) {
+    async function registerNewUser(username, password, firstName, lastName, email, phoneNumber, birthDate, role) {
 
         const response = await fetch('https://localhost:5001/Identity/register', {
             method: 'post',
@@ -53,8 +55,10 @@ function RegisterForm(props) {
                 PasswordHash: password,
                 Email: email,
                 PhoneNumber: phoneNumber,
-                FisrtName: firstName,
+                FirstName: firstName,
                 LastName: lastName,
+                BirthDateTime: birthDate,
+                Role: role
             })
         })
         if (response.ok)
@@ -94,7 +98,7 @@ function RegisterForm(props) {
                     <label>Numer telefonu:</label>
                     <input type="text" id="phone-number" required value={phoneNumber} onChange={(e)=> setPhoneNumber(e.target.value)} />
                 </div>
-                {/* <div className="label-input-cluster">
+                <div className="label-input-cluster">
                     <label>Data urodzenia:</label>
                     <input type="datetime" id="birth-date" required value={birthDate} onChange={(e)=> setBirthDate(e.target.value)} />
                 </div>
@@ -105,13 +109,13 @@ function RegisterForm(props) {
                             onChange={handleChange}
                             // classNames={"classone classtwo"}
                             options={[
-                            { text: "Kucharz", value: "0" },
-                            { text: "Kelner", value: "1" },
-                            { text: "Manager", value: "2" },
-                            { text: "Właściciel", value: "3" }
+                            { text: "Kucharz", value: 0 },
+                            { text: "Kelner", value: 1 },
+                            { text: "Manager", value: 2 },
+                            { text: "Właściciel", value: 3 }
                             ]}
                     />
-                </div> */}
+                </div>
                 <button type="submit" className="register-btn" onClick={submitHandler}>Register</button>
             </div>
             
