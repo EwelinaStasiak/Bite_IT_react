@@ -1,13 +1,23 @@
 import {cartActions, countMeals} from "../../../../Utility/_cartActions";
+import {useOrder} from "../../../OrderContext";
 
 const EditOrderRow = (props) => {
-    const cart = props.cart;
     const meal = props.meal;
-    let mealCount = countMeals(cart, meal.name);
-    
+    const order = useOrder().order;
+    const dispatch = useOrder().dispatch;
+    let mealCount = countMeals(order.cart, meal.name);
+
     const clickHandler = (event) => {
         event.preventDefault();
+        
+        dispatch({
+            type: event.target.name,
+            meal: meal
+        })
     }
+    
+    // console.log("meal: ", meal);
+    console.log("order cart: ", order.cart);
     
     return (
         <div>
