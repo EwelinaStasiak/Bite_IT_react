@@ -1,6 +1,7 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useReducer, useState} from "react";
 import {fetchMenu, manageMenu} from "../../../../Utility/_menuFetch";
 import MenuTable from "./MenuTable";
+import {OrderProvider, initOrder, orderReducer} from "../../../OrderContext";
 
 import "./MenuTable.css";
 
@@ -36,15 +37,17 @@ const DisplayMenu = () => {
     }
     
     return(
-        <div className="table-container">
-            {menu.meals !== emptyObj && mealCategories.map(cat =>
-                <MenuTable 
-                    categories={mealCategories}
-                    category={cat}
-                    meals={menu.meals}
-                />
-            )}
-        </div>
+        <OrderProvider initState={initOrder} reducer={orderReducer}>
+            <div className="table-container">
+                {menu.meals !== emptyObj && mealCategories.map(cat =>
+                    <MenuTable 
+                        categories={mealCategories}
+                        category={cat}
+                        meals={menu.meals}
+                    />
+                )}
+            </div>
+        </OrderProvider>
     );
 }
 
