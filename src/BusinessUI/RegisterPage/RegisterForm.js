@@ -1,6 +1,7 @@
 import "./RegisterForm.css";
-import {useRef, useState} from "react";
+import {useState} from "react";
 import ReactHTMLDatalist from "react-html-datalist";
+import { Redirect } from "react-router-dom";
 
 function RegisterForm(props) {
     const [username, setUsername] = useState("");
@@ -10,7 +11,7 @@ function RegisterForm(props) {
     const [email, setEmail] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [birthDate, setBirthDate] = useState("");
-    const [role, setRole] = useState("");
+    const [role, setRole] = useState({ role: "" });
 
     const failedAddNewUser = "There was an error registering a new user.";
     const failedToFetch = "Server error. Try again later.";
@@ -22,7 +23,7 @@ function RegisterForm(props) {
         let errorMessage = null;
 
         try {
-            userData = await registerNewUser(username, password, firstName, lastName, email, phoneNumber);
+            userData = await registerNewUser(username, password, firstName, lastName, email, phoneNumber, birthDate, role);
             if (userData === null)
                 errorMessage = failedAddNewUser;
                 
@@ -35,15 +36,15 @@ function RegisterForm(props) {
         
     }
     const handleChange = e => {
-        let roleFromForm = { ...role, [e.target.name]: e.target.value }
-        console.log(roleFromForm.value);
-        console.log(new Date(birthDate));
+        setRole({ ...role, [e.target.name]: e.target.value })
+        console.log(role);
+        
     
         
       };
 
     async function registerNewUser(username, password, firstName, lastName, email, phoneNumber, birthDate, role) {
-
+        console.log(birthDate, role, role.valueOf().role);
         const response = await fetch('https://localhost:5001/Identity/register', {
             method: 'post',
             headers:{
@@ -58,7 +59,8 @@ function RegisterForm(props) {
                 FirstName: firstName,
                 LastName: lastName,
                 BirthDateTime: birthDate,
-                Role: role
+                Role: role.valueOf().role,
+                
             })
         })
         if (response.ok)
@@ -100,7 +102,7 @@ function RegisterForm(props) {
                 </div>
                 <div className="label-input-cluster">
                     <label>Data urodzenia:</label>
-                    <input type="datetime" id="birth-date" required value={birthDate} onChange={(e)=> setBirthDate(e.target.value)} />
+                    <input type="text" id="birth-date" required value={birthDate} onChange={(e)=> setBirthDate(e.target.value)} />
                 </div>
                 <div className="label-input-cluster">
                     <label>Rola:</label>
@@ -109,10 +111,10 @@ function RegisterForm(props) {
                             onChange={handleChange}
                             // classNames={"classone classtwo"}
                             options={[
-                            { text: "Kucharz", value: 0 },
-                            { text: "Kelner", value: 1 },
-                            { text: "Manager", value: 2 },
-                            { text: "Właściciel", value: 3 }
+                            { text: "Kucharz", value: "0" },
+                            { text: "Kelner", value: "1" },
+                            { text: "Manager", value: "2" },
+                            { text: "Właściciel", value: "3" }
                             ]}
                     />
                 </div>
