@@ -1,4 +1,4 @@
-import {cartActions, countMeals} from "../../../../Utility/_cartActions";
+import {cartActions, countMeals} from "../../../../Utility/_cart";
 import {useOrder} from "../../../OrderContext";
 
 const EditOrderRow = (props) => {

@@ -4,6 +4,7 @@ import MenuTable from "./MenuTable";
 import {OrderProvider, initOrder, orderReducer} from "../../../OrderContext";
 
 import "./MenuTable.css";
+import {CartTable} from "./CartTable";
 
 const emptyObj = {};
 const initialMenu = {meals: []};
@@ -47,6 +48,7 @@ const DisplayMenu = () => {
                     />
                 )}
             </div>
+            <CartTable />
         </OrderProvider>
     );
 }

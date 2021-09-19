@@ -5,7 +5,8 @@ import {useReducer} from "react";
 import "./BusinessUI.css";
 
 const logInAction = "logIn";
-const logOutStatus = {user: null, error: null};
+// const logOutStatus = {user: null, error: null};
+const logOutStatus = {user: "user", error: null};
 
 function BusinessUI() {
     const [logInStatus, setLogInState] = useReducer(logInHandler, logOutStatus, resetLogInStatus);

@@ -1,5 +1,5 @@
 import React, {useReducer} from "react";
-import {cartActions} from "../Utility/_cartActions";
+import {cartActions} from "../Utility/_cart";
 
 const Context = React.createContext();
 Context.displayName = 'Order';
@@ -11,14 +11,11 @@ export const orderReducer = (prevState, action) => {
         switch (action.type){
             case cartActions.add:
                 prevState.cart.push(action.meal);
-                // console.log("new cart: ", prevState.cart);
                 return {...prevState, cart: prevState.cart}
             case cartActions.remove:
                 const otherMeals = prevState.cart.filter(m => m.id !== action.meal.id);
                 const modifiedMeals = prevState.cart.filter(m => m.id === action.meal.id)
                 modifiedMeals.pop();
-                // console.log("new cart: ", newCart);
-                // return {...prevState, cart: newCart}
                 return {...prevState, cart: [...otherMeals, ...modifiedMeals]}
         }
 }
