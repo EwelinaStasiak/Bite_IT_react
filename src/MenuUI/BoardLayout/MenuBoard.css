@@ -1,0 +1,21 @@
+.menu-board {
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
+    width: 89vh;
+    background-image: url("../../img/menuBoard.png");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: contain;
+    
+    display: grid;
+    grid-template-columns: 1fr 53vh 1fr;
+    grid-template-rows: 9vh 1fr 9vh;
+}
+
+@media only screen and (orientation: portrait) {
+    .menu-board {
+        max-width: 100vw;
+        grid-template-columns: 0.9fr 59vw 1fr;
+        grid-template-rows: 11vw 79vw 9vw;
+    }
+}

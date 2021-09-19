@@ -1,0 +1,20 @@
+.modal-content {
+    position: fixed;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width:70%;
+    min-width: 760px;
+    height: auto;
+    background: rgb(177, 154, 154);
+    font-size: x-large;
+    text-align-last: center;
+    color: white;
+}
+
+@media only screen and (max-width: 760px) {
+    .modal-content {
+        min-width: 100%;
+        max-width: 100%;
+    }
+}

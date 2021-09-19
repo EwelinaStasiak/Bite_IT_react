@@ -1,0 +1,103 @@
+.board-content-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: auto;
+    color: white;
+    align-items: center;
+}
+
+.scrollable {
+    overflow: auto;
+}
+
+.title {
+    margin-bottom: 2vh;
+    font-size: 4vh;
+    text-transform: uppercase;
+}
+
+.add-to-cart-btn,
+.del-from-cart-btn {
+    width: 3vh;
+    min-width: 3vh;
+    max-width: 3vh;
+    height: 3vh;
+    min-height: 3vh;
+    max-height: 3vh;
+    border: 0;
+    border-radius: 10%;
+}
+
+.add-to-cart-btn {
+    background-color: white;
+}
+
+.del-from-cart-btn {
+    background: none;
+}
+
+.add-to-cart-btn:hover,
+.del-from-cart-btn:hover {
+    background-color: #ababab;
+}
+
+.add-to-cart-btn:active,
+.del-from-cart-btn:active {
+    background-color: #02baff;
+}
+
+/*.meals-list {*/
+/*    margin-bottom: 0.7em;*/
+/*    font-size: 2vh;*/
+/*    text-align: left;*/
+/*    !*list-style-type: "🍲";*!*/
+/*    !*list-style-type: "🍽️";*!*/
+/*    list-style-type: "🍴";*/
+/*    list-style-position: outside;*/
+/*}*/
+
+.meals-list {
+    width: 100%;
+    font-size: 2.8vh;
+    text-align: left;
+    list-style-type: "🍴";
+    /*margin-left: 2vh;*/
+    list-style-position: outside;
+    padding-left: 4vh;
+}
+
+.ordered-meals-list-container {
+    width: 100%;
+}
+
+.meal-details {
+    width: 98%;
+    margin: 0.7em 0;
+ }
+
+.meal-name {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+
+@media only screen and (orientation: portrait) {
+    .title {
+        margin-bottom: 2vw;
+        font-size: 5vw;
+        margin-top: 2vw;
+    }
+    
+    .meals-list {
+        font-size: 4vw;
+        padding-left: 4vw;
+    }
+
+    .add-to-cart-btn {
+        width: 3vw;
+        height: 3vw;
+    }
+}

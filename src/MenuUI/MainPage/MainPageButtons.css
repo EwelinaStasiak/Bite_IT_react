@@ -1,0 +1,13 @@
+.main-page-btns-container {
+    text-align: right;
+    padding-right: 0.5em;
+    height: 5vh;
+    align-content: end;
+}
+
+.main-page-btn {
+    margin-left: 1em;
+    height: 70%;
+    width: auto;
+    min-width: 10vh;
+}

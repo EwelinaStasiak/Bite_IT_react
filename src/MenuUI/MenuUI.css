@@ -1,0 +1,56 @@
+.menu-layout-container {
+    margin: 0;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 10vh 90vh;
+    justify-content: center;
+
+    /*background-repeat: repeat;*/
+    background-attachment: fixed;
+    background-image: url("../img/background.png");
+    background-size: cover;
+
+    font-family: "Caveat", sans-serif;
+}
+
+/*.footer {*/
+/*  margin-bottom: 3vh;*/
+/*  position: fixed;*/
+/*  left: 0;*/
+/*  bottom: 0;*/
+/*  width: 100%;*/
+/*  color: #f2f2f2;*/
+/*  text-align: center;*/
+/*  font-family: "Brush Script MT", sans-serif;*/
+/*  line-height: 2vh;*/
+/*  font-size: medium;*/
+/*}*/
+
+
+
+
+/*@media screen and (max-width: 480px) {*/
+/*  #navbarItem {*/
+/*    margin-left: 1vw;*/
+/*    margin-right: 1vw;*/
+/*  }*/
+/*  #navbarContainer{*/
+/*    margin-top: 1vh;*/
+/*    height: fit-content;*/
+/*    margin-bottom: 1vh;*/
+/*  }*/
+/*  */
+/*}*/
+
+/*@media screen and (min-width: 480px) {*/
+/*  #navbarItem {*/
+/*    margin-left: 2vw;*/
+/*    margin-right:2vw;*/
+/*  }*/
+/*  #navbarContainer{*/
+/*    margin-top: 2vh;*/
+/*    height: fit-content;*/
+/*    margin-bottom: 1vh;*/
+/*  }*/
+/*}*/
+
