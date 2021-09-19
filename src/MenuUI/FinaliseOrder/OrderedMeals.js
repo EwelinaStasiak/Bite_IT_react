@@ -1,7 +1,6 @@
 import '../MainPage/MainPageContent.css';
 import "./OrderedMeals.css";
 import MealSummary from "./MealSummary";
-import {useState} from "react";
 
 function OrderedMeals (props) {
     let mealsCount = 0;

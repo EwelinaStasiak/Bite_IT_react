@@ -1,0 +1,81 @@
+.table-container {
+    width: 100%;
+    overflow: auto;
+}
+
+table {
+    width: 100%;
+    min-width: 300px;
+}
+
+.table-meal-details {
+    border-bottom: 1px solid dimgrey;
+}
+
+th {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: #ababab;
+    border-bottom: 3px solid black;
+    border-top: 3px solid black;
+    font-size: 2vh;
+}
+
+td {
+    width: 100%;
+    text-align: left;
+    font-size: 1.5vh;
+}
+
+td span {
+    font-weight: bold;
+}
+
+.table-meal-name {
+    font-size: 1.7vh;
+    font-weight: bold;
+    padding: 0.3vh 1vw 0.3vh 1vw;
+}
+.table-meal-price {
+    width: 20vw;
+    min-width: 70px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.table-meal-price span {
+    font-size: 0.8vh;
+    font-weight: normal;
+}
+
+.table-add-btn {
+    column-width: 20vh;
+    min-width: 70px;
+    text-align: center;
+}
+.table-add-btn button {
+    width: 90%;
+    padding: 0.5vh 0.5vw;
+    font-weight: bold;
+    text-align: center;
+}
+
+.table-add-btn button:hover {
+    background-color: #02baff;
+}
+
+.table-add-btn button:active {
+    background-color: #a6c307;
+}
+
+.table-meal-description,
+.table-meal-ingredients,
+.table-meal-allergens {
+    padding: 0.2vh 1vw 0.2vh 3vw;
+}
+
+.table-meal-allergens {
+    border: none;
+}

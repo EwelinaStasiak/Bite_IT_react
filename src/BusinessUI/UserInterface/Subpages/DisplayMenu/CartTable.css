@@ -1,0 +1,19 @@
+.cart-container {
+    width: 100%;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.cart-container h1 {
+    align-self: center;
+    margin: 1vh 1vw;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.waiter-cart-meals-list {
+    padding: 0.5vh 1vw;
+    font-size: 1.4em;
+}

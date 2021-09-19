@@ -1,6 +1,5 @@
 import MealPrice from "./MealPrice";
 import "./MealSummary.css";
-import deleteIcon from "../../img/pobrane.png";
 import {useState} from "react";
 import RemoveFromCartBtn from "./RemoveFromCartBtn";
 import RemoveFromCartModal from "./RemoveFromCartModal";

@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import deleteIcon from "../../img/pobrane.png";
 
 function RemoveFromCartBtn({RemoveMealFromList, ...props})

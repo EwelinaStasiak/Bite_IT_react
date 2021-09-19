@@ -1,7 +1,7 @@
 function Homepage() {
     return (
         <div>
-            <p style={{"font-size": "1.em"}}>You're logged in</p>
+            <p style={{"fontSize": "1em"}}>You're logged in</p>
         </div>
     )
 }
